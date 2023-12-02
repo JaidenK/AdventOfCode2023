@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace AoC_D1_1_GUI
+namespace AoC_D1_1_GUI.View
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
