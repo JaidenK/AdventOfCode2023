@@ -11,6 +11,7 @@ namespace AoC_D2
         public int Red { get; set; } = 0;
         public int Green { get; set; } = 0;
         public int Blue { get; set; } = 0;
+        public int Power => Red * Green * Blue;
 
         public bool IsPossible(Handful load1)
         {

@@ -16,9 +16,11 @@ namespace AoC_D2
 
             var bag = new ElfBag();
             bag.LoadGames(File.ReadAllLines(filename));
-            int sum = bag.GetPossibleGames(load).Sum(x => x.ID);
+            int sum_possible = bag.GetPossibleGames(load).Sum(x => x.ID);
+            int sum_powers = bag.Games.Sum(x => x.GetMinimumHand().Power);
 
-            Console.WriteLine($"Sum of possible games: {sum}");
+            Console.WriteLine($"Sum of possible games: {sum_possible}");
+            Console.WriteLine($"Sum of smallest powers: {sum_powers}");
             Console.WriteLine();
             Console.WriteLine("press any key to continue...");
             Console.ReadKey();
