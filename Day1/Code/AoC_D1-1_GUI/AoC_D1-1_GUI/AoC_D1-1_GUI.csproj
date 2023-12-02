@@ -64,6 +64,8 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Core\RelayCommand.cs" />
+    <Compile Include="Model\FullParserResult.cs" />
+    <Compile Include="Model\IFullParserResult.cs" />
     <Compile Include="Model\IParser.cs" />
     <Compile Include="Model\IParserResult.cs" />
     <Compile Include="Model\Parser.cs" />

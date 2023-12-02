@@ -8,7 +8,7 @@ namespace AoC_D1_1_GUI.Model
 {
     public class Parser : IParser
     {
-        public IParserResult Parse(string input)
+        public IParserResult ParseLine(string input)
         {
             int firstDigit = -1;
             int lastDigit = -1;
@@ -31,6 +31,16 @@ namespace AoC_D1_1_GUI.Model
             Console.WriteLine($"{input} -> {calibration_value}");
 
             return new ParserResult(calibration_value);
+        }
+
+        public IFullParserResult ParseLines(string[] input)
+        {
+            List<IParserResult> Results = new List<IParserResult>();
+            foreach (var s in input)
+            {
+                Results.Add(ParseLine(s));
+            }
+            return new FullParserResult(Results);
         }
     }
 }

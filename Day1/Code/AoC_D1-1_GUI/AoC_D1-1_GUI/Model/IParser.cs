@@ -8,6 +8,8 @@ namespace AoC_D1_1_GUI.Model
 {
     public interface IParser
     {
-        IParserResult Parse(string input);
+        IParserResult ParseLine(string input);
+
+        IFullParserResult ParseLines(string[] input);
     }
 }

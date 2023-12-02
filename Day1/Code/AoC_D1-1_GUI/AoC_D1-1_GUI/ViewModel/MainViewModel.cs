@@ -1,4 +1,5 @@
 ﻿using AoC_D1_1_GUI.Core;
+using AoC_D1_1_GUI.Model;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -58,49 +59,17 @@ namespace AoC_D1_1_GUI.ViewModel
 
         private void PerformExecuteCmd(object commandParameter)
         {
-            string[] input = InputText.Split(new char[] { '\n' });
+            var result = new Parser().ParseLines(InputText.Split(new char[] { '\n' }));
 
-            int sum = 0;
+            OutputText = result.FullCalValue.ToString();
 
-            foreach (var s in input)
-            {
-                sum += ParseCalibrationValue(s.Trim());
-            }
-
-            OutputText = sum.ToString();
-
-            Console.WriteLine($"Sum of calibration values: {sum}");
+            Console.WriteLine($"Sum of calibration values: {OutputText}");
         }
 
         #endregion
 
         public MainViewModel()
         {
-        }
-
-        private static int ParseCalibrationValue(string input)
-        {
-            int firstDigit = -1;
-            int lastDigit = -1;
-
-            foreach (char c in input)
-            {
-                if (Char.IsDigit(c))
-                {
-                    int digit = int.Parse(c.ToString());
-                    if (firstDigit < 0)
-                    {
-                        firstDigit = digit;
-                    }
-                    lastDigit = digit;
-                }
-            }
-
-            int calibration_value = 10 * firstDigit + lastDigit;
-
-            Console.WriteLine($"{input} -> {calibration_value}");
-
-            return calibration_value;
         }
     }
 }

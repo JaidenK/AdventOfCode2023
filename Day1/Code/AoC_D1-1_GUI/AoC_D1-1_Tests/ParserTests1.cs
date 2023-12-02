@@ -1,6 +1,7 @@
 ﻿using AoC_D1_1_GUI.Model;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
+using System.Linq;
 
 namespace AoC_D1_1_Tests
 {
@@ -16,7 +17,7 @@ namespace AoC_D1_1_Tests
             IParser parser = new Parser();
 
             // Act
-            IParserResult result = parser.Parse(input);
+            IParserResult result = parser.ParseLine(input);
             int calVal = result.CalValue;
 
             // Verify
@@ -32,7 +33,7 @@ namespace AoC_D1_1_Tests
             IParser parser = new Parser();
 
             // Act
-            IParserResult result = parser.Parse(input);
+            IParserResult result = parser.ParseLine(input);
             int calVal = result.CalValue;
 
             // Verify
@@ -48,7 +49,7 @@ namespace AoC_D1_1_Tests
             IParser parser = new Parser();
 
             // Act
-            IParserResult result = parser.Parse(input);
+            IParserResult result = parser.ParseLine(input);
             int calVal = result.CalValue;
 
             // Verify
@@ -64,11 +65,33 @@ namespace AoC_D1_1_Tests
             IParser parser = new Parser();
 
             // Act
-            IParserResult result = parser.Parse(input);
+            IParserResult result = parser.ParseLine(input);
             int calVal = result.CalValue;
 
             // Verify
             Assert.AreEqual(expectedResult, calVal);
+        }
+
+        [TestMethod]
+        public void Test5_ParseManyLines()
+        {
+            // Arrange
+            string[] input =
+            {
+                "1abc2",
+                "pqr3stu8vwx",
+                "a1b2c3d4e5f",
+                "treb7uchet",
+            };
+            int expectedResult = 142;
+            IParser parser = new Parser();
+
+            // Act
+            var result = parser.ParseLines(input);
+
+            // Verify
+            Assert.AreEqual(expectedResult, result.FullCalValue);
+
         }
     }
 }
