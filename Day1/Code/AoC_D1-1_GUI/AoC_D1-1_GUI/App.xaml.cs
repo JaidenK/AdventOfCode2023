@@ -43,7 +43,7 @@ namespace AoC_D1_1_GUI
                 string output_filename = e.Args.Length > 1 ? e.Args[1] : "out.txt";
 
                 var lines = File.ReadAllLines(input_filename);
-                var result = new Parser().ParseLines(lines);
+                var result = new AlphaNumericParser().ParseLines(lines);
 
                 File.WriteAllText(output_filename, result.FullCalValue.ToString());
             }

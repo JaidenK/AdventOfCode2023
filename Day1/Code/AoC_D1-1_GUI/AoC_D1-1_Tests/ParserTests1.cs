@@ -85,6 +85,9 @@ namespace AoC_D1_1_Tests
             BasicParserTest(parser,"4nineeightseven2",42);
             BasicParserTest(parser,"zoneight234",14);
             BasicParserTest(parser,"7pqrstsixteen",76);
+            BasicParserTest(parser,"1",11);
+            BasicParserTest(parser,"ftgbfqrzslqrcmmeightnjjrrkvhntcv1djmbqztrkvlqfkshoneightggd",88);
+            
         }
     }
 }

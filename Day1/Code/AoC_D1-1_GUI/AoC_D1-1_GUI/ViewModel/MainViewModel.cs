@@ -59,7 +59,7 @@ namespace AoC_D1_1_GUI.ViewModel
 
         private void PerformExecuteCmd(object commandParameter)
         {
-            var result = new Parser().ParseLines(InputText.Split(new char[] { '\n' }));
+            var result = new AlphaNumericParser().ParseLines(InputText.Split(new char[] { '\n' }));
 
             OutputText = result.FullCalValue.ToString();
 
