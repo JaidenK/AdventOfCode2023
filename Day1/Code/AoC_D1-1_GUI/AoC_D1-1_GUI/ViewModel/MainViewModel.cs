@@ -12,7 +12,7 @@ namespace AoC_D1_1_GUI.ViewModel
 {
     public class MainViewModel : INotifyPropertyChanged
     {
-
+        #region Interface
         protected bool SetProperty<T>(ref T field, T newValue, [CallerMemberName] string propertyName = null)
         {
             if (!Equals(field, newValue))
@@ -25,24 +25,21 @@ namespace AoC_D1_1_GUI.ViewModel
             return false;
         }
 
-        private string defaultText;
-
         public event PropertyChangedEventHandler PropertyChanged;
 
-        public string DefaultText { get => defaultText; set => SetProperty(ref defaultText, value); }
+        #endregion
 
-        public MainViewModel()
-        {
-            DefaultText = "asdf";
-        }
+        #region Bindings
 
-        private string inputText;
-
+        private string inputText = "Enter input here";
         public string InputText { get => inputText; set => SetProperty(ref inputText, value); }
 
         private string outputText;
-
         public string OutputText { get => outputText; set => SetProperty(ref outputText, value); }
+
+        #endregion
+
+        #region Commands
 
         private RelayCommand executeCmd;
 
@@ -61,8 +58,8 @@ namespace AoC_D1_1_GUI.ViewModel
 
         private void PerformExecuteCmd(object commandParameter)
         {
-            string[] input = InputText.Split(new char[] {'\n'});
-            
+            string[] input = InputText.Split(new char[] { '\n' });
+
             int sum = 0;
 
             foreach (var s in input)
@@ -74,6 +71,13 @@ namespace AoC_D1_1_GUI.ViewModel
 
             Console.WriteLine($"Sum of calibration values: {sum}");
         }
+
+        #endregion
+
+        public MainViewModel()
+        {
+        }
+
         private static int ParseCalibrationValue(string input)
         {
             int firstDigit = -1;

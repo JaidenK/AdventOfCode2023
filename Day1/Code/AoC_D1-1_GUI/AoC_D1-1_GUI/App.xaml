@@ -4,6 +4,13 @@
              xmlns:local="clr-namespace:AoC_D1_1_GUI"
              StartupUri="View/MainWindow.xaml">
     <Application.Resources>
-         
+        <SolidColorBrush x:Key="Gray1" Color="#444d56"/>
+        <SolidColorBrush x:Key="Gray2" Color="#2b3137"/>
+        <SolidColorBrush x:Key="Gray3" Color="#24292e"/>
+        <SolidColorBrush x:Key="Gray4" Color="#1d2125"/>
+        <SolidColorBrush x:Key="Gray5" Color="#171a1d"/>
+        <SolidColorBrush x:Key="Gray6" Color="#141414"/>        
+
+        <SolidColorBrush x:Key="Green1" Color="#28a745"/>        
     </Application.Resources>
 </Application>
