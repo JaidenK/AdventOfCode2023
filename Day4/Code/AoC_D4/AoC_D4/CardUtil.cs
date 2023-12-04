@@ -30,7 +30,7 @@ namespace AoC_D4
             ulong sum = 0;
             foreach (var card in cards)
             {
-                sum += card.GetPointValue();
+                sum += card.PointValue;
             }
             return sum;
         }

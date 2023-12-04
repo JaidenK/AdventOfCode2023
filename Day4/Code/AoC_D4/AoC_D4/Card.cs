@@ -13,6 +13,18 @@ namespace AoC_D4
         public List<ulong> RequiredNumbers { get; set; } = new List<ulong>();
         public List<ulong> MyNumbers { get; set; } = new List<ulong>();
 
+        private ulong pointValue;
+
+        public ulong PointValue
+        {
+            get
+            {
+                pointValue = GetPointValue();
+                return pointValue;
+            }
+        }
+
+
         public bool Equals(ICard other)
         {
             if (ID != other.ID) return false;
@@ -21,7 +33,7 @@ namespace AoC_D4
             return true;
         }
 
-        public ulong GetPointValue()
+        private ulong GetPointValue()
         {
             var winningNumbers = GetWinningNumbers();
             Console.WriteLine($"Card {ID} Winning Numbers: {String.Join(" ", winningNumbers)}");

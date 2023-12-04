@@ -13,7 +13,7 @@ namespace AoC_D4_Tests
         public void Card_PointValue_Test1()
         {
             var card = new CardFactory().GetCard("Card 1: 1 2 3 | 4 5 6");
-            Assert.IsTrue(0 == card.GetPointValue());
+            Assert.IsTrue(0 == card.PointValue);
         }
 
         [TestMethod]
@@ -29,7 +29,7 @@ namespace AoC_D4_Tests
             Assert.IsTrue(2 == winningNumbers[0]);
             Assert.IsTrue(3 == winningNumbers[1]);
             Assert.IsTrue(8 == winningNumbers[2]);
-            Assert.IsTrue(4 == card.GetPointValue());
+            Assert.IsTrue(4 == card.PointValue);
         }
 
         [TestMethod]
@@ -41,7 +41,7 @@ namespace AoC_D4_Tests
             Assert.IsTrue(2 == winningNumbers[0]);
             Assert.IsTrue(3 == winningNumbers[1]);
             Assert.IsTrue(8 == winningNumbers[2]);
-            Assert.IsTrue(4 == card.GetPointValue());
+            Assert.IsTrue(4 == card.PointValue);
         }
 
         [TestMethod]

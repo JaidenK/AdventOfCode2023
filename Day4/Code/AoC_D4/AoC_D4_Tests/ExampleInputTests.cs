@@ -41,7 +41,7 @@ namespace AoC_D4_Tests
             Assert.IsTrue(86 == winningNumbers[2]);
             Assert.IsTrue(17 == winningNumbers[3]);
 
-            Assert.IsTrue(8 == card.GetPointValue());
+            Assert.IsTrue(8 == card.PointValue);
         }
 
         [TestMethod]

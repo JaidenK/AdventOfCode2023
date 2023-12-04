@@ -9,8 +9,8 @@ namespace AoC_D4
         ulong ID { get; }
         List<ulong> MyNumbers { get; }
         List<ulong> RequiredNumbers { get; }
+        ulong PointValue { get; }
 
-        ulong GetPointValue();
         List<ulong> GetWinningNumbers();
     }
 }
