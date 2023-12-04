@@ -6,11 +6,19 @@ using System.Threading.Tasks;
 
 namespace AoC_D4
 {
-    public class Card 
+    public class Card : IEquatable<Card>
     {
         public ulong ID { get; set; }
         public List<ulong> RequiredNumbers { get; set; } = new List<ulong>();
         public List<ulong> MyNumbers { get; set; } = new List<ulong>();
+
+        public bool Equals(Card other)
+        {
+            if(ID  != other.ID) return false;
+            if (!RequiredNumbers.SequenceEqual(other.RequiredNumbers)) return false;
+            if (!MyNumbers.SequenceEqual(other.MyNumbers)) return false;
+            return true;
+        }
 
         public ulong GetPointValue()
         {

@@ -6,23 +6,9 @@ using System.Collections.Generic;
 namespace AoC_D4_Tests
 {    
     [TestClass]
-    public class UnitTest1
+    public class ExampleInputTests
     {
-        [TestMethod]
-        public void Card_GetWinningNumbers()
-        {
-            Card card = new Card
-            {
-                RequiredNumbers = new List<ulong> { 1, 2, 3, 7, 8 },
-                MyNumbers = new List<ulong> { 2, 3, 4, 5, 8 },
-            };
-            var winningNumbers = card.GetWinningNumbers();
-            Assert.IsTrue(3 == winningNumbers.Count);
-            Assert.IsTrue(2 == winningNumbers[0]);
-            Assert.IsTrue(3 == winningNumbers[1]);
-            Assert.IsTrue(8 == winningNumbers[2]);
-            Assert.IsTrue(4 == card.GetPointValue());
-        }
+
         [TestMethod]
         public void ExampleInput_End2End()
         {
@@ -104,13 +90,6 @@ namespace AoC_D4_Tests
             Assert.IsTrue(card.RequiredNumbers.Contains(93));
             Assert.IsTrue(card.MyNumbers.Contains(90));
             Assert.IsTrue(card.MyNumbers.Contains(21));
-        }
-
-        [TestMethod]
-        public void MyTestMethod()
-        {
-            var card = new CardFactory().GetCard("Card 1: 1 2 3 | 4 5 6");
-            Assert.IsTrue(0 == card.GetPointValue() );
         }
     }
 }
