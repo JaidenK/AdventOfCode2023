@@ -10,9 +10,11 @@ namespace AoC_D3
     {
         public int GetAnswer(List<INode> Nodes)
         {
-            int sum = Nodes.Where(n => n is Number)
-                           .Where(n => n.AdjacentSymbols().Count > 0)
-                           .Sum(n => (n as Number).Value);
+            List<Gear> valid_gears = Nodes.Where(n => n is Gear)
+                                    .Cast<Gear>()
+                                    .Where(n => n.HasValidNeighbors())
+                                    .ToList();
+            int sum = valid_gears.Sum(n => n.GetRatio());
             return sum;
         }
     }

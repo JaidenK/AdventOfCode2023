@@ -17,7 +17,10 @@ namespace AoC_D3
             var matches = rx_symbols.Matches(input);
             foreach (Match match in matches)
             {
-                nodes.Add(new Symbol(match));
+                if (match.Value[0] == '*')
+                    nodes.Add(new Gear(match));
+                else
+                    nodes.Add(new Symbol(match));
             }
             matches = rx_number.Matches(input);
             foreach (Match match in matches)

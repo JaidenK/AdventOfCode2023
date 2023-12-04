@@ -180,10 +180,10 @@ namespace AoC_D3_Tests
             var factory = new NodeFactory();
             List<INode> nodes = factory.BuildFullGraph(input);
 
-            Part1 part1 = new Part1();
-            var sum = part1.GetAnswer(nodes);
+            Part2 part2 = new Part2();
+            var sum = part2.GetAnswer(nodes);
 
-            Assert.AreEqual(4361, sum);
+            Assert.AreEqual(467835, sum);
         }
     }
 }

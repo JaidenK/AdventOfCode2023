@@ -16,7 +16,10 @@ namespace AoC_D3
             List<INode> nodes = factory.BuildFullGraph(lines);
             Part1 part1 = new Part1();
             var sum = part1.GetAnswer(nodes);
+            Part2 part2 = new Part2();
+            var ratio_sum = part2.GetAnswer(nodes);
             Console.WriteLine($"Sum of part numbers (Part 1): {sum}");
+            Console.WriteLine($"Sum of gear ratios (Part 2): {ratio_sum}");
             Console.WriteLine("Press any key to continue...");
             Console.ReadKey();
         }
