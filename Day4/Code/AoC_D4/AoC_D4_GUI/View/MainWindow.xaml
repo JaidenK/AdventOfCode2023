@@ -4,9 +4,57 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:AoC_D4_GUI.View"
+        xmlns:vm="clr-namespace:AoC_D4_GUI.ViewModel"
         mc:Ignorable="d"
         Title="Advent of Code - Day 4 - Scratchers" Height="450" Width="800">
-    <Grid>
-        
+    <Window.DataContext>
+        <vm:MainViewModel/>
+    </Window.DataContext>
+    <Grid Margin="10">
+        <DockPanel>
+            <StackPanel DockPanel.Dock="Top">
+                <TextBlock Text="Filename:"/>
+                <TextBox Text="{Binding Path=Filename}">
+                    <!-- https://stackoverflow.com/questions/15567588/wpf-binding-default-value-for-empty-string -->
+                    <!-- https://stackoverflow.com/questions/13558287/what-is-the-difference-for-targettype-xtype-button-and-targettype-button -->
+                    <!-- This method actually sets the value of the textbox -->
+                    <!--<Style TargetType="{x:Type TextBox}"  BasedOn="{StaticResource {x:Type TextBox}}">
+                        <Setter Property="Text" Value="{Binding Filename}"/>
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding Path=Filename.Length, FallbackValue=0, TargetNullValue=0}" Value="0">
+                                <Setter Property="Text" Value="{x:Static local:ApplicationLabels.NoFilenameDefaultText}"/>
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>-->
+                </TextBox>
+                <TextBlock Text="Cards:"/>
+            </StackPanel>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="200"/>
+                </Grid.ColumnDefinitions>
+                <ListBox ItemsSource="{Binding Cards}">
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <DataTemplate.Resources>
+                                <Style TargetType="{x:Type TextBlock}" BasedOn="{StaticResource {x:Type TextBlock}}">
+                                    <Setter Property="FontFamily" Value="Consolas"/>
+                                </Style>
+                            </DataTemplate.Resources>
+                            <DockPanel>
+                                <TextBlock Text="{Binding Path=OriginalInputString}" Margin="0,0,20,0"/>
+                                <TextBlock Text="Points: "/>
+                                <TextBlock Text="{Binding Path=PointValue}"/>
+                            </DockPanel>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+                <StackPanel Grid.Column="1" Margin="10">
+                    <TextBlock Text="Sum:"/>
+                    <TextBox Text="{Binding Path=PointSum, Mode=OneWay}" BorderThickness="0" Background="Transparent" IsReadOnly="True"/>
+                </StackPanel>
+            </Grid>
+        </DockPanel>
     </Grid>
 </Window>
