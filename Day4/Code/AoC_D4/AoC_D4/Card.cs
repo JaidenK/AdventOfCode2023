@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace AoC_D4
 {
-    public class Card : IEquatable<Card>
+    public class Card : ICard
     {
         public ulong ID { get; set; }
         public List<ulong> RequiredNumbers { get; set; } = new List<ulong>();
@@ -14,7 +14,7 @@ namespace AoC_D4
 
         public bool Equals(Card other)
         {
-            if(ID  != other.ID) return false;
+            if (ID != other.ID) return false;
             if (!RequiredNumbers.SequenceEqual(other.RequiredNumbers)) return false;
             if (!MyNumbers.SequenceEqual(other.MyNumbers)) return false;
             return true;
@@ -32,7 +32,7 @@ namespace AoC_D4
         public List<ulong> GetWinningNumbers()
         {
             var WinningNumbers = new List<ulong>();
-            foreach(var number in RequiredNumbers)
+            foreach (var number in RequiredNumbers)
             {
                 if (MyNumbers.Contains(number))
                     WinningNumbers.Add(number);

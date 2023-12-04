@@ -35,7 +35,7 @@ namespace AoC_D4_Tests
         [TestMethod]
         public void Card_GetWinningNumbers_Factory()
         {
-            Card card = new CardFactory().GetCard("Card 1: 1 2 3 7 8 | 2 3 4 5 8");
+            var card = new CardFactory().GetCard("Card 1: 1 2 3 7 8 | 2 3 4 5 8");
             var winningNumbers = card.GetWinningNumbers();
             Assert.IsTrue(3 == winningNumbers.Count);
             Assert.IsTrue(2 == winningNumbers[0]);

@@ -9,7 +9,7 @@ namespace AoC_D4
 {
     public class CardFactory
     {
-        public Card GetCard(string input)
+        public ICard GetCard(string input)
         {
             var card = new Card();
             Regex regex = new Regex(@"Card\s+(\d+):([^\|]+)\|(.*)");
@@ -31,7 +31,7 @@ namespace AoC_D4
             return card;
         }
 
-        public Card GetCard_Old(string input)
+        public ICard GetCard_Old(string input)
         {
             var card = new Card();
             Regex regex = new Regex(@"Card\s+(\d+):\s+(\d+)\s+(\d+)\s+(\d+)\s+(\d+)\s+(\d+)\s+\|\s+(\d+)\s+(\d+)\s+(\d+)\s+(\d+)\s+(\d+)\s+(\d+)\s+(\d+)\s+(\d+)");
@@ -59,9 +59,9 @@ namespace AoC_D4
             return card;
         }
 
-        public List<Card> GetCards(string[] input)
+        public List<ICard> GetCards(string[] input)
         {
-            var cards = new List<Card>();
+            var cards = new List<ICard>();
             foreach (var s in input)
             {
                 cards.Add(GetCard(s));

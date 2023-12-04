@@ -13,7 +13,7 @@ namespace AoC_D4_Tests
         public void ExampleInput_End2End()
         {
             string input = "Card 1: 41 48 83 86 17 | 83 86  6 31 17  9 48 53";
-            Card card = new CardFactory().GetCard(input);
+            var card = new CardFactory().GetCard(input);
 
             Assert.IsNotNull(card);
             Assert.IsTrue(1 == card.ID);
