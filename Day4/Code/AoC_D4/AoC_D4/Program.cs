@@ -13,8 +13,8 @@ namespace AoC_D4
         {
             string[] input = File.ReadAllLines("input.txt");
             var cards = new CardFactory().GetCards(input);
-            var sum = CardUtil.Sum(cards);
-            var sum2 = CardUtil.CountScratch(cards);
+            var sum = CardUtil.SumPointValues(cards);
+            var sum2 = CardUtil.ScratchAndCount(cards);
             Console.WriteLine($"Total value (Part1): {sum}");
             Console.WriteLine($"Total count (Part2): {sum2}");
             Console.WriteLine("Press any key to continue...");

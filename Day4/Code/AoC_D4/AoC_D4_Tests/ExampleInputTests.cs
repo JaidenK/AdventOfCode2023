@@ -57,7 +57,7 @@ namespace AoC_D4_Tests
                 "Card 6: 31 18 13 56 72 | 74 77 10 23 35 67 36 11",
             };
             
-            var sum = CardUtil.Sum(new CardFactory().GetCards(input));
+            var sum = CardUtil.SumPointValues(new CardFactory().GetCards(input));
             Assert.IsTrue(13 == sum);
         }
         [TestMethod]
@@ -74,7 +74,7 @@ namespace AoC_D4_Tests
             };
 
             var cards = new CardFactory().GetCards(input);
-            var sum = CardUtil.CountScratch(cards);
+            var sum = CardUtil.ScratchAndCount(cards);
             Assert.AreEqual(30, sum);
         }
 

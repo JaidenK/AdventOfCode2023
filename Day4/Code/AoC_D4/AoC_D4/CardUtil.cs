@@ -8,9 +8,8 @@ namespace AoC_D4
 {
     public class CardUtil
     {
-        public static int CountScratch(List<Card> cards)
+        public static int ScratchAndCount(List<Card> cards)
         {
-            List<Card> newCards = new List<Card>();
             int[] counts = new int[cards.Count];
             for (int i = 0; i < cards.Count; i++)
             {
@@ -26,7 +25,7 @@ namespace AoC_D4
             return counts.Sum();
         }
 
-        public static ulong Sum(List<Card> cards)
+        public static ulong SumPointValues(List<Card> cards)
         {
             ulong sum = 0;
             foreach (var card in cards)
