@@ -8,6 +8,24 @@ namespace AoC_D4
 {
     public class CardUtil
     {
+        public static int CountScratch(List<Card> cards)
+        {
+            List<Card> newCards = new List<Card>();
+            int[] counts = new int[cards.Count];
+            for (int i = 0; i < cards.Count; i++)
+            {
+                counts[i]++;
+                var card = cards[i];
+                var nWinningNos = card.GetWinningNumbers().Count;
+                for (int j = 0; j < nWinningNos; j++)
+                {
+                    if((i + j + 1) < cards.Count)
+                        counts[i + j + 1] += counts[i];
+                }
+            }
+            return counts.Sum();
+        }
+
         public static ulong Sum(List<Card> cards)
         {
             ulong sum = 0;

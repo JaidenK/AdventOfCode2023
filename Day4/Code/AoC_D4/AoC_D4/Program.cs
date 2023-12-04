@@ -14,7 +14,9 @@ namespace AoC_D4
             string[] input = File.ReadAllLines("input.txt");
             var cards = new CardFactory().GetCards(input);
             var sum = CardUtil.Sum(cards);
-            Console.WriteLine($"Total value: {sum}");
+            var sum2 = CardUtil.CountScratch(cards);
+            Console.WriteLine($"Total value (Part1): {sum}");
+            Console.WriteLine($"Total count (Part2): {sum2}");
             Console.WriteLine("Press any key to continue...");
             Console.ReadKey();
         }
