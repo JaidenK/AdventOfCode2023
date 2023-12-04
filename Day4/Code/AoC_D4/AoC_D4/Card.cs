@@ -8,6 +8,7 @@ namespace AoC_D4
 {
     public class Card : ICard
     {
+        public string OriginalInputString { get; set; }
         public ulong ID { get; set; }
         public List<ulong> RequiredNumbers { get; set; } = new List<ulong>();
         public List<ulong> MyNumbers { get; set; } = new List<ulong>();

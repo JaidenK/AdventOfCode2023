@@ -11,19 +11,21 @@ namespace AoC_D4
     {
         public ICard GetCard(string input)
         {
-            var card = new Card();
-            Regex regex = new Regex(@"Card\s+(\d+):([^\|]+)\|(.*)");
-            Regex regex_digit = new Regex(@"\d+");
-            var match = regex.Match(input);
+            var card = new Card
+            {
+                OriginalInputString = input
+            };
+
+            var match = Regex.Match(input, @"Card\s+(\d+):([^\|]+)\|(.*)");
             card.ID = ulong.Parse(match.Groups[1].Value);
             var required_numbers_string = match.Groups[2].Value;
             var my_numbers_string = match.Groups[3].Value;
-            var matches = regex_digit.Matches(required_numbers_string);
+            var matches = Regex.Matches(required_numbers_string, @"\d+");
             foreach(Match m in matches)
             {
                 card.RequiredNumbers.Add(ulong.Parse(m.Value));
             }
-            matches = regex_digit.Matches(my_numbers_string);
+            matches = Regex.Matches(my_numbers_string, @"\d+");
             foreach (Match m in matches)
             {
                 card.MyNumbers.Add(ulong.Parse(m.Value));

@@ -5,9 +5,10 @@ namespace AoC_D4
 {
     public interface ICard : IEquatable<ICard>
     {
-        ulong ID { get; set; }
-        List<ulong> MyNumbers { get; set; }
-        List<ulong> RequiredNumbers { get; set; }
+        string OriginalInputString { get; }
+        ulong ID { get; }
+        List<ulong> MyNumbers { get; }
+        List<ulong> RequiredNumbers { get; }
 
         ulong GetPointValue();
         List<ulong> GetWinningNumbers();
