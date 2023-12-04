@@ -12,7 +12,7 @@ namespace AoC_D4
         public List<ulong> RequiredNumbers { get; set; } = new List<ulong>();
         public List<ulong> MyNumbers { get; set; } = new List<ulong>();
 
-        public bool Equals(Card other)
+        public bool Equals(ICard other)
         {
             if (ID != other.ID) return false;
             if (!RequiredNumbers.SequenceEqual(other.RequiredNumbers)) return false;
