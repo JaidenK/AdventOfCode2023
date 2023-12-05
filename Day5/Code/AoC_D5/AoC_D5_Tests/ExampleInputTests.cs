@@ -1,5 +1,8 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using AoC_D5;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace AoC_D5_Tests
 {
@@ -46,7 +49,10 @@ namespace AoC_D5_Tests
         [TestMethod]
         public void ExampleInput_End2End()
         {
-
+            IAlmanac almanac = new AlmanacFactory().LoadAlamanac(full_example_input);
+            almanac.MapSeeds();
+            var lowest = almanac.GetLocations().Min();
+            Assert.AreEqual(35, lowest);
         }
     }
 }

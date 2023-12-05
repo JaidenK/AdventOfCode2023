@@ -43,8 +43,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Almanac.cs" />
+    <Compile Include="AlmanacFactory.cs" />
+    <Compile Include="IAlmanac.cs" />
+    <Compile Include="IMapping.cs" />
+    <Compile Include="IRange.cs" />
+    <Compile Include="ISeed.cs" />
+    <Compile Include="Mapping.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Range.cs" />
+    <Compile Include="Seed.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
