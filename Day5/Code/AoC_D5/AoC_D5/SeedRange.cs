@@ -54,5 +54,21 @@ namespace AoC_D5
                 mappedValues.Add(maps[i].GetMappedValue(mappedValues[i - 1].Select(ms => ms.Span).ToList()));
             }
         }
+
+        public override string ToString()
+        {
+            var s = $"Seed: {Value}";
+            foreach (var mappedSpanList in mappedValues)
+            {
+                s += Environment.NewLine;
+                s += "    ";
+                foreach (var mappedSpan in mappedSpanList)
+                {
+                    s += " ";
+                    s += mappedSpan.ToString();
+                }
+            }
+            return s;
+        }
     }
 }

@@ -82,5 +82,10 @@ namespace AoC_D5.MathUtil
 
             return (Overlap, Extra);
         }
+
+        public override string ToString()
+        {
+            return $"[{Start} {End}]";
+        }
     }
 }

@@ -68,10 +68,11 @@ namespace AoC_D5_Tests
         [TestMethod]
         public void ExampleInput_Part2_End2End_2()
         {
-            IAlmanac almanac = new AlmanacFactory().LoadAlamanac(full_example_input, useSeedRanges:true);
+            RangeAlmanac almanac = (RangeAlmanac)(new AlmanacFactory().LoadAlamanac(full_example_input, useSeedRanges:true));
             almanac.MapSeeds();
             var lowest = almanac.GetLocations().Min();
             Assert.AreEqual(46, lowest);
+            Console.WriteLine(almanac.SeedRanges[0].ToString());
         }
     }
 }

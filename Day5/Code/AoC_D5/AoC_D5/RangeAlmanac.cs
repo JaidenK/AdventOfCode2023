@@ -11,7 +11,7 @@ namespace AoC_D5
     {
         public List<ISeed> Seeds { get { return SeedRanges.AsSeeds(); } }
         public List<IMap> Maps { get; set; }
-        List<ISeedRange> SeedRanges { get; set; }
+        public List<ISeedRange> SeedRanges { get; set; }
         public RangeAlmanac(List<ISeedRange> seedRanges, List<IMap> maps)
         {
             this.SeedRanges = seedRanges;

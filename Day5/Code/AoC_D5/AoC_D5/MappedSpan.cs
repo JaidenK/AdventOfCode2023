@@ -16,5 +16,13 @@ namespace AoC_D5
         {
             this.Span = Span;
         }
+
+        public override string ToString()
+        {
+            if (MappedBy is null)
+                return Span.ToString();
+            else
+                return $"{Span}@({MappedBy.Source}->{MappedBy.Destination},{MappedBy.Length})";
+        }
     }
 }
