@@ -29,14 +29,14 @@ rawdata = readmatrix("input.txt");
 required_numbers = rawdata(:,3:12);  
 my_numbers = rawdata(:,14:end);
 
-winning_numbers_count = zeros(size(my_numbers,1),1);
+winning_numbers =        cell(size(my_numbers,1),1);
 instance_counts =        ones(size(my_numbers,1),1);
 point_values =          zeros(size(my_numbers,1),1);
 
 for i=1:size(my_numbers,1)
-    count = length(intersect(required_numbers(i,:),my_numbers(i,:)));
+    winning_numbers{i} = intersect(required_numbers(i,:),my_numbers(i,:));
+    count = length(winning_numbers{i});
     if(count > 0)
-        winning_numbers_count(i) = count;
         point_values(i) = 2^(count-1);
         instance_counts(i+(1:count)) = instance_counts(i+(1:count)) + instance_counts(i);
     end
