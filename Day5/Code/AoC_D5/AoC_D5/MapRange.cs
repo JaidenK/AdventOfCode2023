@@ -26,6 +26,10 @@ namespace AoC_D5
         {
             return value + (Destination - Source);
         }
+        public long GetUnmappedValue(long value)
+        {
+            return value - (Destination - Source);
+        }
 
         public bool SourceContains(long value)
         {

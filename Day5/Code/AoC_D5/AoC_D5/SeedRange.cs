@@ -35,7 +35,7 @@ namespace AoC_D5
         public List<IMappedSpan> Humidity => GetAllAtDepth(5);
         public List<IMappedSpan> Location => GetAllAtDepth(6);
 
-        List<List<IMappedSpan>> mappedValues = new List<List<IMappedSpan>>();
+        public List<List<IMappedSpan>> mappedValues = new List<List<IMappedSpan>>();
         private List<IMappedSpan> GetAllAtDepth(int v)
         {
             if (v >= mappedValues.Count)
