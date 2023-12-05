@@ -24,30 +24,30 @@ namespace AoC_D5
             return value;
         }
 
-        public List<ISpan> GetMappedValue(List<ISpan> seedSpans)
+        public List<IMappedSpan> GetMappedValue(List<ISpan> seedSpans)
         {
-            var unmappedSeedRanges = new List<ISpan>();
-            var _unmappedSeedRanges = new List<ISpan>();
+            var unmappedSeedSpans = new List<ISpan>();
+            var _unmappedSeedRanges = new List<IMappedSpan>();
+            var mappedSeedRanges = new List<IMappedSpan>();
             foreach (var span in seedSpans)
             {
-                unmappedSeedRanges.Add(new Span(span));
+                unmappedSeedSpans.Add(new Span(span));
             }
-            var mappedSeedRanges = new List<ISpan>();
-            while(unmappedSeedRanges.Count > 0)
+            while(unmappedSeedSpans.Count > 0)
             {
-                foreach (var seedRange in unmappedSeedRanges)
+                foreach (var seedSpan in unmappedSeedSpans)
                 {
                     bool didMappingOccur = false;
                     foreach (var range in Ranges)
                     {
-                        var result = range.GetMappedValue(seedRange);
+                        var result = range.GetMappedValue(seedSpan);
                         if(result.mapped is null)
                             continue;
 
                         didMappingOccur = true;
                         _unmappedSeedRanges.AddRange(result.unmappable);
                         mappedSeedRanges.Add(result.mapped);
-                        if((result.unmappable.Sum(x => x.Length) +  result.mapped.Length) != seedRange.Length    )
+                        if((result.unmappable.Sum(x => x.Span.Length) +  result.mapped.Span.Length) != seedSpan.Length    )
                         {
                             throw new Exception("Bad math.");
                         }
@@ -56,13 +56,13 @@ namespace AoC_D5
                     }
                     if (!didMappingOccur)
                     {
-                        mappedSeedRanges.Add(new Span(seedRange));
+                        mappedSeedRanges.Add(new MappedSpan(seedSpan));
                     }
                 }
-                unmappedSeedRanges.Clear();
+                unmappedSeedSpans.Clear();
                 foreach (var unmappedSeedRange in _unmappedSeedRanges)
                 {
-                    unmappedSeedRanges.Add(new Span(unmappedSeedRange));
+                    unmappedSeedSpans.Add(new Span(unmappedSeedRange.Span));
                 }
                 _unmappedSeedRanges.Clear();
             }

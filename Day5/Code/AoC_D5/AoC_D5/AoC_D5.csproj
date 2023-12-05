@@ -47,11 +47,13 @@
     <Compile Include="AlmanacFactory.cs" />
     <Compile Include="IAlmanac.cs" />
     <Compile Include="IMap.cs" />
+    <Compile Include="IMappedSpan.cs" />
     <Compile Include="IMapRange.cs" />
     <Compile Include="ISeed.cs" />
     <Compile Include="ISeedFactory.cs" />
     <Compile Include="ISeedRange.cs" />
     <Compile Include="Map.cs" />
+    <Compile Include="MappedSpan.cs" />
     <Compile Include="MathUtil\ISpan.cs" />
     <Compile Include="MathUtil\Span.cs" />
     <Compile Include="Program.cs" />

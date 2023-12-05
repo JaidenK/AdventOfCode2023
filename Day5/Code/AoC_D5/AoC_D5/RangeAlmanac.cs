@@ -10,7 +10,6 @@ namespace AoC_D5
     public class RangeAlmanac : IAlmanac
     {
         public List<ISeed> Seeds { get { return SeedRanges.AsSeeds(); } }
-
         public List<IMap> Maps { get; set; }
         List<ISeedRange> SeedRanges { get; set; }
         public RangeAlmanac(List<ISeedRange> seedRanges, List<IMap> maps)
@@ -21,12 +20,12 @@ namespace AoC_D5
 
         public List<long> GetLocations()
         {
-            var locationSeedRanges = new List<ISpan>();
+            var locationSeedRanges = new List<IMappedSpan>();
             foreach (var seedRange in SeedRanges)
             {
                 locationSeedRanges.AddRange(seedRange.Location);
             }
-            return locationSeedRanges.Select(s => s.Start).ToList();
+            return locationSeedRanges.Select(s => s.Span.Start).ToList();
             //return locationSeedRanges.AsSeeds().Select(s => s.Location).ToList();
         }
 

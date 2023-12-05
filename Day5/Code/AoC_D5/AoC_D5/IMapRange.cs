@@ -10,7 +10,7 @@ namespace AoC_D5
         long Length { get; }
 
         long GetMappedValue(long value);
-        (ISpan mapped, List<ISpan> unmappable) GetMappedValue(ISpan value);
+        (IMappedSpan mapped, List<IMappedSpan> unmappable) GetMappedValue(ISpan value);
         bool SourceContains(long value);
         bool DestinationContains(long value);
     }

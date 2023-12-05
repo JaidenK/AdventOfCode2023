@@ -11,13 +11,13 @@ namespace AoC_D5
     public interface ISeedRange
     {
         ISpan Value { get; }
-        List<ISpan> Soil { get; }
-        List<ISpan> Fertilizer { get; }
-        List<ISpan> Water { get; }
-        List<ISpan> Light { get; }
-        List<ISpan> Temperature { get; }
-        List<ISpan> Humidity { get; }
-        List<ISpan> Location { get; }
+        List<IMappedSpan> Soil { get; }
+        List<IMappedSpan> Fertilizer { get; }
+        List<IMappedSpan> Water { get; }
+        List<IMappedSpan> Light { get; }
+        List<IMappedSpan> Temperature { get; }
+        List<IMappedSpan> Humidity { get; }
+        List<IMappedSpan> Location { get; }
 
         void Map(List<IMap> maps);
     }

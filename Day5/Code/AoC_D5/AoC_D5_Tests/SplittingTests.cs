@@ -22,10 +22,10 @@ namespace AoC_D5_Tests
                         );
             var result = range.GetMappedValue(seed_range);
             Assert.IsNotNull(result.mapped);
-            Assert.AreEqual(10, result.mapped.Length);
+            Assert.AreEqual(10, result.mapped.Span.Length);
             Assert.AreEqual(2, result.unmappable.Count);
-            Assert.AreEqual(5, result.unmappable[0].Length);
-            Assert.AreEqual(11, result.unmappable[1].Length);
+            Assert.AreEqual(5, result.unmappable[0].Span.Length);
+            Assert.AreEqual(11, result.unmappable[1].Span.Length);
         }
         [TestMethod]
         public void Splitting_Test3()
@@ -42,7 +42,7 @@ namespace AoC_D5_Tests
             Assert.IsNotNull(result);
             Assert.IsNull(result.mapped);
             Assert.AreEqual(1, result.unmappable.Count);
-            Assert.AreEqual(5, result.unmappable[0].Length);
+            Assert.AreEqual(5, result.unmappable[0].Span.Length);
         }
         [TestMethod]
         public void Splitting_Test5()
@@ -58,7 +58,7 @@ namespace AoC_D5_Tests
             var result = range.GetMappedValue(seed_range);
             Assert.IsNotNull(result);
             Assert.IsNotNull(result.mapped);
-            Assert.AreEqual(10, result.mapped.Length);
+            Assert.AreEqual(10, result.mapped.Span.Length);
             Assert.AreEqual(0, result.unmappable.Count);
         }
         [TestMethod]
@@ -74,10 +74,10 @@ namespace AoC_D5_Tests
                         );
             var result = range.GetMappedValue(seed_range);
 
-            Assert.AreEqual(20, result.mapped.Start);
-            Assert.AreEqual(10, result.mapped.Length);
-            Assert.AreEqual(5, result.unmappable[0].Start);
-            Assert.AreEqual(5, result.unmappable[0].Length);
+            Assert.AreEqual(20, result.mapped.Span.Start);
+            Assert.AreEqual(10, result.mapped.Span.Length);
+            Assert.AreEqual(5, result.unmappable[0].Span.Start);
+            Assert.AreEqual(5, result.unmappable[0].Span.Length);
         }
 
         [TestMethod]
@@ -102,10 +102,10 @@ namespace AoC_D5_Tests
             seed_range.Map(maps);
             Assert.AreEqual(2, seed_range.Soil.Count);
             // Order not guaranteed. Bad test.
-            Assert.AreEqual(5, seed_range.Soil[1].Start);
-            Assert.AreEqual(5, seed_range.Soil[1].Length);
-            Assert.AreEqual(20, seed_range.Soil[0].Start);
-            Assert.AreEqual(10, seed_range.Soil[0].Length);
+            Assert.AreEqual(5, seed_range.Soil[1].Span.Start);
+            Assert.AreEqual(5, seed_range.Soil[1].Span.Length);
+            Assert.AreEqual(20, seed_range.Soil[0].Span.Start);
+            Assert.AreEqual(10, seed_range.Soil[0].Span.Length);
         }
     }
 }

@@ -27,16 +27,16 @@ namespace AoC_D5
 
         public ISpan Value { get; set; }
 
-        public List<ISpan> Soil => GetAllAtDepth(0);
-        public List<ISpan> Fertilizer => GetAllAtDepth(1);
-        public List<ISpan> Water => GetAllAtDepth(2);
-        public List<ISpan> Light => GetAllAtDepth(3);
-        public List<ISpan> Temperature => GetAllAtDepth(4);
-        public List<ISpan> Humidity => GetAllAtDepth(5);
-        public List<ISpan> Location => GetAllAtDepth(6);
+        public List<IMappedSpan> Soil => GetAllAtDepth(0);
+        public List<IMappedSpan> Fertilizer => GetAllAtDepth(1);
+        public List<IMappedSpan> Water => GetAllAtDepth(2);
+        public List<IMappedSpan> Light => GetAllAtDepth(3);
+        public List<IMappedSpan> Temperature => GetAllAtDepth(4);
+        public List<IMappedSpan> Humidity => GetAllAtDepth(5);
+        public List<IMappedSpan> Location => GetAllAtDepth(6);
 
-        List<List<ISpan>> mappedValues = new List<List<ISpan>>();
-        private List<ISpan> GetAllAtDepth(int v)
+        List<List<IMappedSpan>> mappedValues = new List<List<IMappedSpan>>();
+        private List<IMappedSpan> GetAllAtDepth(int v)
         {
             if (v >= mappedValues.Count)
                 return null;
@@ -51,7 +51,7 @@ namespace AoC_D5
             mappedValues.Add(maps[0].GetMappedValue(new List<ISpan>() { new Span(Value) }));
             for (int i = 1; i < maps.Count; i++)
             {
-                mappedValues.Add(maps[i].GetMappedValue(mappedValues[i - 1]));
+                mappedValues.Add(maps[i].GetMappedValue(mappedValues[i - 1].Select(ms => ms.Span).ToList()));
             }
         }
     }

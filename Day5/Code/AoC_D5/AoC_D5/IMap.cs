@@ -9,6 +9,6 @@ namespace AoC_D5
         List<IMapRange> Ranges { get; }
 
         long GetMappedValue(long value);
-        List<ISpan> GetMappedValue(List<ISpan> seedSpans);
+        List<IMappedSpan> GetMappedValue(List<ISpan> seedSpans);
     }
 }
