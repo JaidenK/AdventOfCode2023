@@ -9,7 +9,7 @@ namespace AoC_D5
         long Length { get; }
 
         long GetMappedValue(long value);
-        List<List<ISeedRange>> GetMappedValue(ISeedRange value);
+        (ISeedRange mapped, List<ISeedRange> unmappable) GetMappedValue(ISeedRange value);
         bool SourceContains(long value);
         bool DestinationContains(long value);
     }

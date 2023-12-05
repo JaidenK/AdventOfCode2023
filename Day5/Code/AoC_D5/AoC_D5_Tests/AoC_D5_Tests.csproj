@@ -54,6 +54,7 @@
     <Compile Include="AlmanacTests.cs" />
     <Compile Include="FactoryTests.cs" />
     <Compile Include="SplittingTests.cs" />
+    <Compile Include="SpanTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AoC_D5.MathUtil;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -36,134 +37,24 @@ namespace AoC_D5
             return (value >= Destination) && (value < (Destination + Length));
         }
 
-        public List<List<ISeedRange>> GetMappedValue(ISeedRange seedRange)
+        public (ISeedRange mapped, List<ISeedRange> unmappable) GetMappedValue(ISeedRange seedRange)
         {
-            bool isInMapRange = true;
-            var rangeEndVal = Source + (Length - 1);
-            var seedRangeEndVal = seedRange.Start + (seedRange.Length - 1);
-
-
-
-            var mappableSeedRanges = new List<ISeedRange>(); // Intersection
-            var unmappableSeedRanges = new List<ISeedRange>(); // Exclusion
-            var mappedSeedRanges = new List<ISeedRange>();
-
-            var seedRangeToBuild = new SeedRange(0, 0);
-            List<ISeedRange> listToAddTo = null;
-
-            #region "state machine"
-            int state = 0;
-            // State 0: Looking for start
-            // State 1: looking for overlap sta
-            // State 2: looking for overlap end
-            // State 3: looking for range end
-            // State 4: Done
-            if (Source == seedRange.Start)
-            {
-                isInMapRange = true;
-                state = 2;
-                seedRangeToBuild.Start = Source;
-                listToAddTo = mappableSeedRanges;
-            }
-            else
-            {
-                seedRangeToBuild.Start = Math.Min(Source, seedRange.Start);
-                isInMapRange = Source < seedRange.Start;
-                if(!isInMapRange)
-                {
-                    listToAddTo = unmappableSeedRanges;
-                }
-                else
-                {
-                    listToAddTo = null;
-                }
-                state = 1;
-            }
-
-            // In one of the regions, looking for overlap start
-            if (state == 1)
-            {
-                if (isInMapRange)
-                {
-                    var endVal = Math.Min(rangeEndVal, seedRange.Start);
-                    seedRangeToBuild.Length = (endVal - seedRangeToBuild.Start);
-                    if(endVal == rangeEndVal)
-                    {
-                        // Found gap between them
-                        unmappableSeedRanges.Add(new SeedRange(seedRange));
-                        listToAddTo = null;
-                        state = 4;
-                        isInMapRange = false;
-                    }
-                }
-                else
-                {
-                    isInMapRange = true;
-                    var endVal = Math.Min(seedRangeEndVal, Source);
-                    seedRangeToBuild.Length = (endVal - seedRangeToBuild.Start);
-                    if (endVal == seedRangeEndVal)
-                    {
-                        // Found gap between them
-                        unmappableSeedRanges.Add(new SeedRange(seedRange));
-                        listToAddTo = null;
-                        state = 4;
-                        isInMapRange = false;
-                    }
-                }
-                if(state != 4)
-                {
-                    listToAddTo?.Add(seedRangeToBuild);
-                    seedRangeToBuild = new SeedRange(seedRangeToBuild.Start + seedRangeToBuild.Length, 0);
-                    state = 2;
-                }
-            }
-
-            // In both of the regions, looking for overlap end
-            if (state == 2)
-            {
-                if (rangeEndVal == seedRangeEndVal)
-                {
-                    isInMapRange = false;
-                    state = 4;
-                    seedRangeToBuild.Length = (seedRangeEndVal - seedRangeToBuild.Start) + 1;
-                    mappableSeedRanges.Add(seedRangeToBuild);
-                    // no more seedranges to build
-                }
-                else
-                {
-                    var endVal = Math.Min(seedRangeEndVal, rangeEndVal);
-                    seedRangeToBuild.Length = (endVal - seedRangeToBuild.Start) + 1;
-                    mappableSeedRanges.Add(seedRangeToBuild);
-                    seedRangeToBuild = new SeedRange(endVal + 1, 0);
-                    isInMapRange = seedRangeEndVal < rangeEndVal;
-                    state = 3;
-                }
-            }
-
-            // looking for range end
-            if (state == 3)
-            {
-                if (isInMapRange)
-                {
-                    seedRangeToBuild.Length = (rangeEndVal - seedRangeToBuild.Start) + 1;
-                    listToAddTo = null;
-                }
-                else
-                {
-                    seedRangeToBuild.Length = (seedRangeEndVal - seedRangeToBuild.Start) + 1;
-                    unmappableSeedRanges.Add(seedRangeToBuild);
-                }
-                // No more ranges to build
-                state = 4;
-            }
-            #endregion
-
-            foreach(var mappableSeedRange in mappableSeedRanges)
-            {
-                mappedSeedRanges.Add(new SeedRange(GetMappedValue(mappableSeedRange.Start),mappableSeedRange.Length));
-            }
-
-            return new List<List<ISeedRange>> { mappedSeedRanges, unmappableSeedRanges };
+            var knife = new Span(this);
+            var target = new Span(seedRange);
+            var chopped = knife.GetOverlap(target);
+            
+            return 
+            (
+                (chopped.Overlap is null) 
+                    ? null
+                    : new SeedRange
+                        (
+                            GetMappedValue(chopped.Overlap.Start),
+                            chopped.Overlap.Length
+                        )
+                ,
+                chopped.Extra.Select(s => (ISeedRange)(new SeedRange(s))).ToList()
+            );
         }
 
         // https://stackoverflow.com/questions/41185122/finding-overlapping-region-between-two-ranges-of-integers

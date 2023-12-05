@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AoC_D5.MathUtil;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,7 +16,10 @@ namespace AoC_D5
         }
 
         public SeedRange(ISeedRange range) : this(range.Start, range.Length)
-        {            
+        {
+        }
+        public SeedRange(ISpan span) : this(span.Start, span.Length)
+        {
         }
 
         public long Start { get; set; }

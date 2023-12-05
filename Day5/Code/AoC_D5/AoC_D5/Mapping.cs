@@ -39,18 +39,14 @@ namespace AoC_D5
                     bool didMappingOccur = false;
                     foreach (var range in Ranges)
                     {
-                        var mappedUnmapped = range.GetMappedValue(seedRange);
-                        var mapped = mappedUnmapped[0];
-                        var unmapped = mappedUnmapped[1];
-                        if(unmapped.Count == 1)
-                        {
-                            if (unmapped[0].Length == seedRange.Length)
-                                continue;
-                        }
-                        _unmappedSeedRanges.AddRange(unmapped);
-                        mappedSeedRanges.AddRange(mapped);
+                        var result = range.GetMappedValue(seedRange);
+                        if(result.mapped is null)
+                            continue;
+
                         didMappingOccur = true;
-                        if((unmapped.Sum(x => x.Length) +  mapped.Sum(x => x.Length)) != seedRange.Length    )
+                        _unmappedSeedRanges.AddRange(result.unmappable);
+                        mappedSeedRanges.Add(result.mapped);
+                        if((result.unmappable.Sum(x => x.Length) +  result.mapped.Length) != seedRange.Length    )
                         {
                             throw new Exception("Bad math.");
                         }

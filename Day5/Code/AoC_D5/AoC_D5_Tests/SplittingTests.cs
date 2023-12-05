@@ -19,12 +19,11 @@ namespace AoC_D5_Tests
                             length: 10
                         );
             var result = range.GetMappedValue(seed_range);
-            Assert.IsNotNull(result);
-            Assert.AreEqual(1, result[0].Count);
-            Assert.AreEqual(10, result[0][0].Length);
-            Assert.AreEqual(2, result[1].Count);
-            Assert.AreEqual(5, result[1][0].Length);
-            Assert.AreEqual(11, result[1][1].Length);
+            Assert.IsNotNull(result.mapped);
+            Assert.AreEqual(10, result.mapped.Length);
+            Assert.AreEqual(2, result.unmappable.Count);
+            Assert.AreEqual(5, result.unmappable[0].Length);
+            Assert.AreEqual(11, result.unmappable[1].Length);
         }
         [TestMethod]
         public void Splitting_Test3()
@@ -38,9 +37,9 @@ namespace AoC_D5_Tests
                         );
             var result = range.GetMappedValue(seed_range);
             Assert.IsNotNull(result);
-            Assert.AreEqual(0, result[0].Count);
-            Assert.AreEqual(1, result[1].Count);
-            Assert.AreEqual(5, result[1][0].Length);
+            Assert.IsNull(result.mapped);
+            Assert.AreEqual(1, result.unmappable.Count);
+            Assert.AreEqual(5, result.unmappable[0].Length);
         }
         [TestMethod]
         public void Splitting_Test5()
@@ -54,9 +53,9 @@ namespace AoC_D5_Tests
                         );
             var result = range.GetMappedValue(seed_range);
             Assert.IsNotNull(result);
-            Assert.AreEqual(1, result[0].Count);
-            Assert.AreEqual(10, result[0][0].Length);
-            Assert.AreEqual(0, result[1].Count);
+            Assert.IsNotNull(result.mapped);
+            Assert.AreEqual(10, result.mapped.Length);
+            Assert.AreEqual(0, result.unmappable.Count);
         }
         [TestMethod]
         public void Splitting_Test4()
@@ -70,10 +69,10 @@ namespace AoC_D5_Tests
                         );
             var result = range.GetMappedValue(seed_range);
 
-            Assert.AreEqual(20, result[0][0].Start);
-            Assert.AreEqual(10, result[0][0].Length);
-            Assert.AreEqual(5, result[1][0].Start);
-            Assert.AreEqual(5, result[1][0].Length);
+            Assert.AreEqual(20, result.mapped.Start);
+            Assert.AreEqual(10, result.mapped.Length);
+            Assert.AreEqual(5, result.unmappable[0].Start);
+            Assert.AreEqual(5, result.unmappable[0].Length);
         }
 
         [TestMethod]
