@@ -1,4 +1,5 @@
 ﻿using AoC_D5;
+using AoC_D5.MathUtil;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,29 +10,27 @@ namespace AoC_D5
 {
     public interface ISeedRange
     {
-        long Start { get; }
-        long Length { get; }
+        ISpan Value { get; }
+        List<ISpan> Soil { get; }
+        List<ISpan> Fertilizer { get; }
+        List<ISpan> Water { get; }
+        List<ISpan> Light { get; }
+        List<ISpan> Temperature { get; }
+        List<ISpan> Humidity { get; }
+        List<ISpan> Location { get; }
 
-        List<ISeedRange> Soil { get; }
-        List<ISeedRange> Fertilizer { get; }
-        List<ISeedRange> Water { get; }
-        List<ISeedRange> Light { get; }
-        List<ISeedRange> Temperature { get; }
-        List<ISeedRange> Humidity { get; }
-        List<ISeedRange> Location { get; }
         void Map(List<IMap> maps);
-        List<ISeedRange> GetMappedValue(ISeedRange range);
     }
 
     public static class ListExtension
     {
-        public static List<ISeed> AsSeeds(this List<ISeedRange> ranges)
+        public static List<ISeed> AsSeeds(this List<ISeedRange> seedRanges)
         {
             var seeds = new List<ISeed>();
-            foreach (var range in ranges)
+            foreach (var seedRange in seedRanges)
             {
-                seeds.Add(new Seed(range.Start));
-                seeds.Add(new Seed(range.Length));
+                seeds.Add(new Seed(seedRange.Value.Start));
+                seeds.Add(new Seed(seedRange.Value.Length));
             }
             return seeds;
         }

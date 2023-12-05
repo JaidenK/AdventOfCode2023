@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using AoC_D5.MathUtil;
+using System.Collections.Generic;
 
 namespace AoC_D5
 {
@@ -8,6 +9,6 @@ namespace AoC_D5
         List<IMapRange> Ranges { get; }
 
         long GetMappedValue(long value);
-        List<ISeedRange> GetMappedValue(List<ISeedRange> seedRanges);
+        List<ISpan> GetMappedValue(List<ISpan> seedSpans);
     }
 }

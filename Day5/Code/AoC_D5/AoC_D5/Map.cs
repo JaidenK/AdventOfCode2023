@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AoC_D5.MathUtil;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,15 +24,15 @@ namespace AoC_D5
             return value;
         }
 
-        public List<ISeedRange> GetMappedValue(List<ISeedRange> valuesToMap)
+        public List<ISpan> GetMappedValue(List<ISpan> seedSpans)
         {
-            var unmappedSeedRanges = new List<ISeedRange>();
-            var _unmappedSeedRanges = new List<ISeedRange>();
-            foreach (var seedRange in valuesToMap)
+            var unmappedSeedRanges = new List<ISpan>();
+            var _unmappedSeedRanges = new List<ISpan>();
+            foreach (var span in seedSpans)
             {
-                unmappedSeedRanges.Add(new SeedRange(seedRange));
+                unmappedSeedRanges.Add(new Span(span));
             }
-            var mappedSeedRanges = new List<ISeedRange>();
+            var mappedSeedRanges = new List<ISpan>();
             while(unmappedSeedRanges.Count > 0)
             {
                 foreach (var seedRange in unmappedSeedRanges)
@@ -55,13 +56,13 @@ namespace AoC_D5
                     }
                     if (!didMappingOccur)
                     {
-                        mappedSeedRanges.Add(new SeedRange(seedRange));
+                        mappedSeedRanges.Add(new Span(seedRange));
                     }
                 }
                 unmappedSeedRanges.Clear();
                 foreach (var unmappedSeedRange in _unmappedSeedRanges)
                 {
-                    unmappedSeedRanges.Add(new SeedRange(unmappedSeedRange));
+                    unmappedSeedRanges.Add(new Span(unmappedSeedRange));
                 }
                 _unmappedSeedRanges.Clear();
             }

@@ -40,8 +40,8 @@ namespace AoC_D5.MathUtil
 
         public Span(ISeedRange seedRange)
         {
-            Start = seedRange.Start;
-            Length = seedRange.Length;
+            Start = seedRange.Value.Start;
+            Length = seedRange.Value.Length;
         }
 
         public bool Contains(long point)

@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using AoC_D5.MathUtil;
+using System.Collections.Generic;
 
 namespace AoC_D5
 {
@@ -9,7 +10,7 @@ namespace AoC_D5
         long Length { get; }
 
         long GetMappedValue(long value);
-        (ISeedRange mapped, List<ISeedRange> unmappable) GetMappedValue(ISeedRange value);
+        (ISpan mapped, List<ISpan> unmappable) GetMappedValue(ISpan value);
         bool SourceContains(long value);
         bool DestinationContains(long value);
     }

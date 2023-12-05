@@ -1,4 +1,5 @@
 ﻿using AoC_D5;
+using AoC_D5.MathUtil;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Collections.Generic;
@@ -11,7 +12,8 @@ namespace AoC_D5_Tests
         [TestMethod]
         public void Splitting_Test2()
         {
-            var seed_range = new SeedRange(5, 26);
+            //var seed_range = new SeedRange(5, 26);
+            var seed_range = new Span { Start = 5, Length = 26 };
             var range = new MapRange
                         (
                             source: 10,
@@ -28,7 +30,8 @@ namespace AoC_D5_Tests
         [TestMethod]
         public void Splitting_Test3()
         {
-            var seed_range = new SeedRange(5, 5);
+            //var seed_range = new SeedRange(5, 5);
+            var seed_range = new Span { Start = 5, Length = 5 };
             var range = new MapRange
                         (
                             source: 100,
@@ -44,7 +47,8 @@ namespace AoC_D5_Tests
         [TestMethod]
         public void Splitting_Test5()
         {
-            var seed_range = new SeedRange(10, 10);
+            //var seed_range = new SeedRange(10, 10);
+            var seed_range = new Span { Start = 10, Length = 10 };
             var range = new MapRange
                         (
                             source: 5,
@@ -60,7 +64,8 @@ namespace AoC_D5_Tests
         [TestMethod]
         public void Splitting_Test4()
         {
-            var seed_range = new SeedRange(5, 15);
+            //var seed_range = new SeedRange(5, 15);
+            var seed_range = new Span { Start = 5, Length = 15 };
             var range = new MapRange
                         (
                             source: 10,

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AoC_D5.MathUtil;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,7 +21,7 @@ namespace AoC_D5
 
         public List<long> GetLocations()
         {
-            var locationSeedRanges = new List<ISeedRange>();
+            var locationSeedRanges = new List<ISpan>();
             foreach (var seedRange in SeedRanges)
             {
                 locationSeedRanges.AddRange(seedRange.Location);

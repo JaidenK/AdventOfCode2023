@@ -37,23 +37,24 @@ namespace AoC_D5
             return (value >= Destination) && (value < (Destination + Length));
         }
 
-        public (ISeedRange mapped, List<ISeedRange> unmappable) GetMappedValue(ISeedRange seedRange)
+        public (ISpan mapped, List<ISpan> unmappable) GetMappedValue(ISpan value)
         {
             var knife = new Span(this);
-            var target = new Span(seedRange);
+            var target = new Span(value);
             var chopped = knife.GetOverlap(target);
-            
-            return 
+
+            return
             (
-                (chopped.Overlap is null) 
+                (chopped.Overlap is null)
                     ? null
-                    : new SeedRange
-                        (
-                            GetMappedValue(chopped.Overlap.Start),
-                            chopped.Overlap.Length
-                        )
+                    : new Span
+                    {
+                        Start = GetMappedValue(chopped.Overlap.Start),
+                        Length = chopped.Overlap.Length
+                    }
                 ,
-                chopped.Extra.Select(s => (ISeedRange)(new SeedRange(s))).ToList()
+                //chopped.Extra.Select(s => (ISpan)(new Span(s))).ToList()
+                chopped.Extra
             );
         }
 
