@@ -10,6 +10,7 @@ namespace AoC_D5
     public interface IAlmanac
     {
         List<ISeed> Seeds { get; }
+        //List<ISeedRange> SeedRanges { get; }
         List<IMapping> Maps { get; }
 
         void MapSeeds();

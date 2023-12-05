@@ -8,5 +8,6 @@ namespace AoC_D5
         List<IRange> Ranges { get; }
 
         long GetMappedValue(long value);
+        List<ISeedRange> GetMappedValue(List<ISeedRange> seedRanges);
     }
 }

@@ -54,5 +54,24 @@ namespace AoC_D5_Tests
             var lowest = almanac.GetLocations().Min();
             Assert.AreEqual(35, lowest);
         }
+
+        [TestMethod]
+        public void ExampleInput_Part2_End2End()
+        {
+            var factory = new SeedFactory_SimpleRanges();
+            IAlmanac almanac = new AlmanacFactory().LoadAlamanac(full_example_input, factory);
+            almanac.MapSeeds();
+            var lowest = almanac.GetLocations().Min();
+            Assert.AreEqual(46, lowest);
+        }
+
+        [TestMethod]
+        public void ExampleInput_Part2_End2End_2()
+        {
+            IAlmanac almanac = new AlmanacFactory().LoadAlamanac(full_example_input, useSeedRanges:true);
+            almanac.MapSeeds();
+            var lowest = almanac.GetLocations().Min();
+            Assert.AreEqual(46, lowest);
+        }
     }
 }

@@ -49,11 +49,18 @@
     <Compile Include="IMapping.cs" />
     <Compile Include="IRange.cs" />
     <Compile Include="ISeed.cs" />
+    <Compile Include="ISeedFactory.cs" />
+    <Compile Include="ISeedRange.cs" />
     <Compile Include="Mapping.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Range.cs" />
+    <Compile Include="RangeAlmanac.cs" />
     <Compile Include="Seed.cs" />
+    <Compile Include="SeedFactory.cs" />
+    <Compile Include="SeedFactory_Ranges.cs" />
+    <Compile Include="SeedFactory_SimpleRanges.cs" />
+    <Compile Include="SeedRange.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

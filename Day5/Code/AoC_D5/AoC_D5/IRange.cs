@@ -1,4 +1,6 @@
-﻿namespace AoC_D5
+﻿using System.Collections.Generic;
+
+namespace AoC_D5
 {
     public interface IRange
     {
@@ -7,6 +9,7 @@
         long Length { get; }
 
         long GetMappedValue(long value);
+        List<List<ISeedRange>> GetMappedValue(ISeedRange value);
         bool SourceContains(long value);
         bool DestinationContains(long value);
     }

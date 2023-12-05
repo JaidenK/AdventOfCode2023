@@ -9,8 +9,10 @@ namespace AoC_D5
 {
     public class AlmanacFactory
     {
-        public IAlmanac LoadAlamanac(string[] input)
+        public IAlmanac LoadAlamanac(string[] input, ISeedFactory seedFactory = null, bool useSeedRanges = false)
         {
+            seedFactory = seedFactory ?? new SeedFactory();
+
             var seeds = new List<ISeed>();
             var maps = new List<IMapping>();
 
@@ -19,7 +21,7 @@ namespace AoC_D5
                 var line = input[i];
                 if(line.Contains("seeds:"))
                 {
-                    seeds = ParseSeeds(line);
+                    seeds = seedFactory.ParseSeeds(line);
                     continue;
                 }
                 
@@ -45,18 +47,11 @@ namespace AoC_D5
                 }
             }
 
-            return new Almanac(seeds, maps);
-        }
-
-        private List<ISeed> ParseSeeds(string line)
-        {
-            var seeds = new List<ISeed>();
-            MatchCollection matches = Regex.Matches(line,@"\d+");
-            foreach(Match match in matches)
-            {
-                seeds.Add(new Seed(long.Parse(match.Value)));
+            if(useSeedRanges)
+            {                
+                return new RangeAlmanac(seeds.AsSeedRanges(), maps);
             }
-            return seeds;
+            return new Almanac(seeds, maps);
         }
     }
 }
