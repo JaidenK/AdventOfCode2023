@@ -1,11 +1,9 @@
-
 index = (1:length(point_values))';
 req_index = repmat(index,1,size(required_numbers,2));
 my_index = repmat(index,1,size(my_numbers,2));
 
 %% Scatter plot of numbers
 figure();
-%scatter(req_index(1,:),required_numbers(1,:));
 grid on
 grid minor
 hold on
