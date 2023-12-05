@@ -10,9 +10,9 @@ namespace AoC_D5
     {
         public List<ISeed> Seeds { get { return SeedRanges.AsSeeds(); } }
 
-        public List<IMapping> Maps { get; set; }
+        public List<IMap> Maps { get; set; }
         List<ISeedRange> SeedRanges { get; set; }
-        public RangeAlmanac(List<ISeedRange> seedRanges, List<IMapping> maps)
+        public RangeAlmanac(List<ISeedRange> seedRanges, List<IMap> maps)
         {
             this.SeedRanges = seedRanges;
             Maps = maps;

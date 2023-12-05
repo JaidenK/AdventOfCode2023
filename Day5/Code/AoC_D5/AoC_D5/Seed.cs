@@ -31,7 +31,7 @@ namespace AoC_D5
             Value = value;
         }
 
-        public void Map(List<IMapping> maps)
+        public void Map(List<IMap> maps)
         {
             if (maps is null) return;
             if (maps.Count == 0) return;

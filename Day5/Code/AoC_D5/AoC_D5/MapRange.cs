@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace AoC_D5
 {
-    public class Range : IRange
+    public class MapRange : IMapRange
     {
         public long Source { get; set; }
 
@@ -15,7 +15,7 @@ namespace AoC_D5
 
         public long Length { get; set; }
 
-        public Range(long source, long destination, long length)
+        public MapRange(long source, long destination, long length)
         {
             Source = source;
             Destination = destination;

@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace AoC_D5
 {
-    public class Mapping : IMapping
+    public class Map : IMap
     {
         public string Name { get; set; } = "";
-        public List<IRange> Ranges { get; set; } = new List<IRange>();
+        public List<IMapRange> Ranges { get; set; } = new List<IMapRange>();
 
         public long GetMappedValue(long value)
         {

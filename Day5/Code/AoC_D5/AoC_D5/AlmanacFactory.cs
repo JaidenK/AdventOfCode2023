@@ -14,7 +14,7 @@ namespace AoC_D5
             seedFactory = seedFactory ?? new SeedFactory();
 
             var seeds = new List<ISeed>();
-            var maps = new List<IMapping>();
+            var maps = new List<IMap>();
 
             for(long i = 0; i < input.Length; i++)
             {
@@ -30,14 +30,14 @@ namespace AoC_D5
                 if(match.Success)
                 {
                     var map_name = match.Groups[1].Value;
-                    maps.Add(new Mapping { Name = map_name });
+                    maps.Add(new Map { Name = map_name });
                     continue;
                 }
                 // Match a range
                 match = Regex.Match(line, @"(\d+)\s+(\d+)\s+(\d+)");
                 if(match.Success)
                 {
-                    var range = new Range
+                    var range = new MapRange
                     (
                         source:      long.Parse(match.Groups[2].Value),
                         destination: long.Parse(match.Groups[1].Value),

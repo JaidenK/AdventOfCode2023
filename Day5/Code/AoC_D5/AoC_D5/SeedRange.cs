@@ -41,7 +41,7 @@ namespace AoC_D5
             return mappedValues[v];
         }
 
-        public void Map(List<IMapping> maps)
+        public void Map(List<IMap> maps)
         {
             if (maps is null) return;
             if (maps.Count == 0) return;

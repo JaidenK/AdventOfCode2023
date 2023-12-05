@@ -17,21 +17,21 @@ namespace AoC_D5_Tests
             var s3 = new Seed(55);
             var s4 = new Seed(49);
             var seeds = new List<ISeed> { s1, s2, s3, s4 };
-            var maps = new List<IMapping>
+            var maps = new List<IMap>
             {
-                new Mapping
+                new Map
                 {
-                    Ranges = new List<IRange>
+                    Ranges = new List<IMapRange>
                     {
-                        new Range(1,3,50)
+                        new MapRange(1,3,50)
                     }
                 },
-                new Mapping
+                new Map
                 {
-                    Ranges = new List<IRange>
+                    Ranges = new List<IMapRange>
                     {
-                        new Range(10,25,5),
-                        new Range(50,60,10)
+                        new MapRange(10,25,5),
+                        new MapRange(50,60,10)
                     }
                 }
 
@@ -83,7 +83,7 @@ namespace AoC_D5_Tests
         [TestMethod]
         public void Range_Test1_Contains()
         {
-            var r1 = new Range(10, 15, 10);
+            var r1 = new MapRange(10, 15, 10);
 
             Assert.IsFalse(r1.SourceContains(9));
             Assert.IsTrue(r1.SourceContains(10));
@@ -98,7 +98,7 @@ namespace AoC_D5_Tests
         [TestMethod]
         public void Range_Test2_Mapping_InRange()
         {
-            var r1 = new Range(10, 15, 10);
+            var r1 = new MapRange(10, 15, 10);
 
             Assert.AreEqual(15, r1.GetMappedValue(10));
             Assert.AreEqual(20, r1.GetMappedValue(15));
@@ -108,7 +108,7 @@ namespace AoC_D5_Tests
         [TestMethod]
         public void Range_Test3_Mapping_OutOfRange()
         {
-            var r1 = new Range(10, 15, 10);
+            var r1 = new MapRange(10, 15, 10);
 
             Assert.AreEqual(5, r1.GetMappedValue(0));
             Assert.AreEqual(70, r1.GetMappedValue(65));

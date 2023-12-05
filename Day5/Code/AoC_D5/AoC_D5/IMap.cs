@@ -2,10 +2,10 @@
 
 namespace AoC_D5
 {
-    public interface IMapping
+    public interface IMap
     {
         string Name { get; }
-        List<IRange> Ranges { get; }
+        List<IMapRange> Ranges { get; }
 
         long GetMappedValue(long value);
         List<ISeedRange> GetMappedValue(List<ISeedRange> seedRanges);

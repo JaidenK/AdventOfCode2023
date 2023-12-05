@@ -32,7 +32,7 @@ namespace AoC_D5.MathUtil
             End = spanToClone.End;
         }
 
-        public Span(IRange range)
+        public Span(IMapRange range)
         {
             Start = range.Source;
             Length = range.Length;

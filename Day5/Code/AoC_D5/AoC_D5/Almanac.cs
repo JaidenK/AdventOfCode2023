@@ -9,9 +9,9 @@ namespace AoC_D5
     public class Almanac : IAlmanac
     {
         public List<ISeed> Seeds { get; set; }
-        public List<IMapping> Maps { get; set; }
+        public List<IMap> Maps { get; set; }
 
-        public Almanac(List<ISeed> seeds, List<IMapping> maps)
+        public Almanac(List<ISeed> seeds, List<IMap> maps)
         {
             Seeds = seeds;
             Maps = maps;

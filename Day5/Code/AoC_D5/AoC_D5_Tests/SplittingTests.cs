@@ -12,7 +12,7 @@ namespace AoC_D5_Tests
         public void Splitting_Test2()
         {
             var seed_range = new SeedRange(5, 26);
-            var range = new Range
+            var range = new MapRange
                         (
                             source: 10,
                             destination: 20,
@@ -29,7 +29,7 @@ namespace AoC_D5_Tests
         public void Splitting_Test3()
         {
             var seed_range = new SeedRange(5, 5);
-            var range = new Range
+            var range = new MapRange
                         (
                             source: 100,
                             destination: 20,
@@ -45,7 +45,7 @@ namespace AoC_D5_Tests
         public void Splitting_Test5()
         {
             var seed_range = new SeedRange(10, 10);
-            var range = new Range
+            var range = new MapRange
                         (
                             source: 5,
                             destination: 15,
@@ -61,7 +61,7 @@ namespace AoC_D5_Tests
         public void Splitting_Test4()
         {
             var seed_range = new SeedRange(5, 15);
-            var range = new Range
+            var range = new MapRange
                         (
                             source: 10,
                             destination: 20,
@@ -79,13 +79,13 @@ namespace AoC_D5_Tests
         public void Splitting_Test1()
         {
             var seed_range = new SeedRange(5, 15);
-            var maps = new List<IMapping>()
+            var maps = new List<IMap>()
             {
-                new Mapping()
+                new Map()
                 {
-                    Ranges = new List<IRange>()
+                    Ranges = new List<IMapRange>()
                     {
-                        new Range
+                        new MapRange
                         (
                             source: 10,
                             destination: 20,

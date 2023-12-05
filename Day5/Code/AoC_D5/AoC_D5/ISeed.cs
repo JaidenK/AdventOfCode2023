@@ -14,6 +14,6 @@ namespace AoC_D5
         long Humidity { get; }
         long Location { get; }
 
-        void Map(List<IMapping> maps);
+        void Map(List<IMap> maps);
     }
 }

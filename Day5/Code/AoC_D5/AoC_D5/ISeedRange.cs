@@ -19,7 +19,7 @@ namespace AoC_D5
         List<ISeedRange> Temperature { get; }
         List<ISeedRange> Humidity { get; }
         List<ISeedRange> Location { get; }
-        void Map(List<IMapping> maps);
+        void Map(List<IMap> maps);
         List<ISeedRange> GetMappedValue(ISeedRange range);
     }
 

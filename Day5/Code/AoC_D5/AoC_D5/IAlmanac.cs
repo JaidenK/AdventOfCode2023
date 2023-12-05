@@ -11,7 +11,7 @@ namespace AoC_D5
     {
         List<ISeed> Seeds { get; }
         //List<ISeedRange> SeedRanges { get; }
-        List<IMapping> Maps { get; }
+        List<IMap> Maps { get; }
 
         void MapSeeds();
         List<long> GetLocations();

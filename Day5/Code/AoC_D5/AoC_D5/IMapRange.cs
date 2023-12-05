@@ -2,7 +2,7 @@
 
 namespace AoC_D5
 {
-    public interface IRange
+    public interface IMapRange
     {
         long Source { get; }
         long Destination { get; }
