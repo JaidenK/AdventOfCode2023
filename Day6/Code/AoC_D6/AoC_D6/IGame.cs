@@ -11,6 +11,7 @@ namespace AoC_D6
         long Time { get; }
         long Record { get; }
 
+        int CountWinningStrategies();
         List<IStrategy> GetWinningStrategies(long threshold = -1);
     }
 }

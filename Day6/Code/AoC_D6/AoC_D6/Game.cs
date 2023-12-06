@@ -34,5 +34,27 @@ namespace AoC_D6
 
             return strats.Where(x => x.Distance > threshold).ToList();
         }
+
+        public static (double x1, double x2) SolveQuadraticFormula(double a, double b, double c)
+        {
+            double x1 = (-b + Math.Sqrt(b * b - 4 * a * c)) / (2 * a);
+            double x2 = (-b - Math.Sqrt(b * b - 4 * a * c)) / (2 * a);
+            return (x1, x2);
+        }
+
+        public int CountWinningStrategies()
+        {
+            // Technically this returns the wrong answer 
+            // if the winning strategy occurs between two
+            // integers
+            var a = -1;
+            var b = Time;
+            var epsilon = 0.001; // hack to reject solutions exactly equal to the record
+            var c = -(Record+epsilon);
+            var sol = SolveQuadraticFormula(a, b, c);
+            sol.x1 = Math.Ceiling(sol.x1);
+            sol.x2 = Math.Floor(sol.x2);
+            return (int)((sol.x2 - sol.x1) + 1);
+        }
     }
 }

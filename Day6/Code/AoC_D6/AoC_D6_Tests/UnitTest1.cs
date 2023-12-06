@@ -28,12 +28,12 @@ namespace AoC_D6_Tests
         }
 
         [TestMethod]
-        public void TestMethod1()
+        public void Example()
         {
             IGame game = new Game(time: 7, record: 9);
 
             List<IStrategy> winningStrats = game.GetWinningStrategies();
-            
+
             Assert.AreEqual(4, winningStrats.Count);
 
             Assert.AreEqual(2, winningStrats[0].HoldTime);
@@ -62,10 +62,61 @@ namespace AoC_D6_Tests
         [TestMethod]
         public void Part2()
         {
+            //throw new Exception("Test intentionally disabled.");
             var games = BuildInputGames2();
             var winningStrats = games.Select(x => x.GetWinningStrategies()).ToList();
             var product = 1;
             winningStrats.ForEach(x => product *= x.Count);
+            Console.WriteLine($"Product of strat count (Part 2:): {product}");
+        }
+
+        [TestMethod]
+        public void AsQuadratics()
+        {
+            IGame game = new Game(time: 7, record: 9);
+
+            var count = game.CountWinningStrategies();
+
+            Assert.AreEqual(4, count);
+        }
+
+        [TestMethod]
+        public void FullExample_Part1_AsQuadratics()
+        {
+            var games = new List<IGame>
+            {
+                new Game(time:  7, record: 9),
+                new Game(time: 15, record: 40),
+                new Game(time: 30, record: 200),
+            };
+
+            var solutions = games.Select(g => g.CountWinningStrategies()).ToList();
+            var product = 1;
+            solutions.ForEach(solution => product *= solution);
+
+            Assert.AreEqual(4, solutions[0]);
+            Assert.AreEqual(8, solutions[1]);
+            Assert.AreEqual(9, solutions[2]);
+            Assert.AreEqual(288, product);
+        }
+
+        [TestMethod]
+        public void Part1_AsQuadratics()
+        {
+            var games = BuildInputGames();
+            var solutions = games.Select(g => g.CountWinningStrategies()).ToList();
+            var product = 1;
+            solutions.ForEach(solution => product *= solution);
+            Console.WriteLine($"Product of strat count (Part 1:): {product}");
+        }
+
+        [TestMethod]
+        public void Part2_AsQuadratics()
+        {
+            var games = BuildInputGames2();
+            var solutions = games.Select(g => g.CountWinningStrategies()).ToList();
+            var product = 1;
+            solutions.ForEach(solution => product *= solution);
             Console.WriteLine($"Product of strat count (Part 2:): {product}");
         }
     }
