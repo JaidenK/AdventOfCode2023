@@ -11,7 +11,7 @@ namespace AoC_D7.Combos
         {
             var typeCounts = new ComboUtil().CountTypes(cards);
             var nJokers = typeCounts.RemoveJokers();
-            return typeCounts.counts.Any(x => x >= 5 - nJokers);
+            return nJokers == 5 || typeCounts.counts.Any(x => x >= 5 - nJokers);
         }
     }
 }
