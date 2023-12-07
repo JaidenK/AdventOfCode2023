@@ -43,8 +43,28 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Cards\Ace.cs" />
+    <Compile Include="Cards\CardBase.cs" />
+    <Compile Include="Cards\Eight.cs" />
+    <Compile Include="Cards\Five.cs" />
+    <Compile Include="Cards\Four.cs" />
+    <Compile Include="Cards\Jack.cs" />
+    <Compile Include="Cards\King.cs" />
+    <Compile Include="Cards\Nine.cs" />
+    <Compile Include="Cards\Queen.cs" />
+    <Compile Include="Cards\Seven.cs" />
+    <Compile Include="Cards\Six.cs" />
+    <Compile Include="Cards\Ten.cs" />
+    <Compile Include="Cards\Three.cs" />
+    <Compile Include="Cards\Two.cs" />
+    <Compile Include="Hand.cs" />
+    <Compile Include="Cards\ICard.cs" />
+    <Compile Include="IHand.cs" />
+    <Compile Include="ISet.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Set.cs" />
+    <Compile Include="SetFactory.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

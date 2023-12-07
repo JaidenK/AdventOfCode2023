@@ -1,4 +1,6 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using AoC_D7;
+using AoC_D7.Cards;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -40,11 +42,11 @@ namespace AoC_D7_Tests
             (
                 new List<IHand>
                 {
-                    new Hand(bid: 765, cards: new ICard[] { new Three(), new Two(), new Ten(), new Three(), new King() }),
-                    new Hand(bid: 684, cards: new ICard[] { new Ten(), new Five(), new Five(), new Jack(), new Five() }),
-                    new Hand(bid: 28, cards: new ICard[] { new King(), new King(), new Six(), new Seven(), new Seven() }),
-                    new Hand(bid: 220, cards: new ICard[] { new King(), new Ten(), new Jack(), new Jack(), new Ten() }),
-                    new Hand(bid: 483, cards: new ICard[] { new Queen(), new Queen(), new Queen(), new Jack(), new Ace() }),
+                    new Hand(bid: 765, cards: new ICard[] { new Three(), new Two(),   new Ten(),   new Three(), new King() }),
+                    new Hand(bid: 684, cards: new ICard[] { new Ten(),   new Five(),  new Five(),  new Jack(),  new Five() }),
+                    new Hand(bid: 28,  cards: new ICard[] { new King(),  new King(),  new Six(),   new Seven(), new Seven() }),
+                    new Hand(bid: 220, cards: new ICard[] { new King(),  new Ten(),   new Jack(),  new Jack(),  new Ten() }),
+                    new Hand(bid: 483, cards: new ICard[] { new Queen(), new Queen(), new Queen(), new Jack(),  new Ace() }),
                 }
             );
             // Sort by rank
