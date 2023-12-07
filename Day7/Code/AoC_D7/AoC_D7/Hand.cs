@@ -27,5 +27,17 @@ namespace AoC_D7
             combo = new ComboFactory().CalculateCombo(cards);
         }
 
+        public int CompareTo(IHand other)
+        {
+            var comboComparison =  combo.Strength - other.Combo.Strength;
+            if (comboComparison != 0)
+                return comboComparison;            
+            for(int i = 0; i < cards.Count; i++)
+            {
+                if (cards[i].Strength != other.Cards[i].Strength)
+                    return cards[i].Strength - other.Cards[i].Strength;
+            }
+            return 0;
+        }
     }
 }

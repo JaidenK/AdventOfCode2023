@@ -82,5 +82,21 @@ namespace AoC_D7_Tests
             Assert.IsInstanceOfType(new HandFactory().BuildHand("23456 111").Combo, typeof(HighCard));
             Assert.IsInstanceOfType(new HandFactory().BuildHand("Q2345 111").Combo, typeof(HighCard));
         }
+
+        [TestMethod]
+        public void ComparisonTest_1()
+        {
+            // Example input
+            var hand1 = new HandFactory().BuildHand("32T3K 765");
+            var hand2 = new HandFactory().BuildHand("KK677 765");
+            var hand3 = new HandFactory().BuildHand("KTJJT 765");
+            var hand4 = new HandFactory().BuildHand("T55J5 765");
+            var hand5 = new HandFactory().BuildHand("QQQJA 765");
+
+            Assert.IsTrue(hand2.CompareTo(hand1) > 0);
+            Assert.IsTrue(hand2.CompareTo(hand3) > 0);
+            Assert.IsTrue(hand4.CompareTo(hand2) > 0);
+            Assert.IsTrue(hand5.CompareTo(hand4) > 0);
+        }
     }
 }

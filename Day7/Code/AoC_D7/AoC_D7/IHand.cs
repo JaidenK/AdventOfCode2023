@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace AoC_D7
 {
-    public interface IHand
+    public interface IHand : IComparable<IHand>
     {
         ReadOnlyCollection<ICard> Cards { get; }
         int Bid { get; }
