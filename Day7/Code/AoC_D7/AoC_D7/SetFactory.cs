@@ -10,7 +10,13 @@ namespace AoC_D7
     {
         public static ISet ParseLines(string[] example_input)
         {
-            throw new NotImplementedException();
+            var factory = new HandFactory();
+            var hands = new List<IHand>();
+            foreach (string line in example_input)
+            {
+                hands.Add(factory.BuildHand(line));
+            }
+            return new Set(hands);
         }
     }
 }
