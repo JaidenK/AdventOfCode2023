@@ -19,12 +19,17 @@ namespace AoC_D7
 
         public int ComputeWinnings()
         {
-            throw new NotImplementedException();
+            int sum = 0;
+            for (int i = 0; i < hands.Count; i++)
+            {
+                sum += hands[i].Bid * (i + 1);
+            }
+            return sum;
         }
 
         public void SortHands()
         {
-            throw new NotImplementedException();
+            hands.Sort();
         }
     }
 }
