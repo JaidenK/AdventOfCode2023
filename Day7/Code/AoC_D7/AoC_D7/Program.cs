@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,6 +11,14 @@ namespace AoC_D7
     {
         static void Main(string[] args)
         {
+            var input = File.ReadAllLines("input.txt");
+            var set = SetFactory.ParseLines(input);
+            var winnings = set.ComputeWinnings();
+
+            Console.WriteLine($"Winnings (Part 1): {winnings}");
+
+            Console.WriteLine("Press any key to continue...");
+            Console.ReadKey();
         }
     }
 }
