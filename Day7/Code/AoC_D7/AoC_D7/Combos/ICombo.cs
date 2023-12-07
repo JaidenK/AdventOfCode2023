@@ -9,6 +9,7 @@ namespace AoC_D7.Combos
     public interface ICombo
     {
         int Strength { get; }
+        bool ContainedIn(IReadOnlyCollection<ICombo> combo);
     }
 
     public class FiveOfAKind : ICombo
