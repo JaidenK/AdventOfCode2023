@@ -9,6 +9,13 @@ namespace AoC_D7
 {
     public class CardFactory
     {
+        private bool usingJokers;
+
+        public CardFactory(bool usingJokers = false)
+        {
+            this.usingJokers = usingJokers;
+        }
+
         internal ICard BuildCard(char letter)
         {
             switch(char.ToUpper(letter))
@@ -23,7 +30,7 @@ namespace AoC_D7
                 case '8': return new Eight();
                 case '9': return new Nine();
                 case 'T': return new Ten();
-                case 'J': return new Jack();
+                case 'J': return usingJokers ? (ICard)new Joker() : (ICard)new Jack();
                 case 'Q': return new Queen();
                 case 'K': return new King();
             }

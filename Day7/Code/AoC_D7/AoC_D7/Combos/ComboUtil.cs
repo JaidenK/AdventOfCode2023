@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AoC_D7.Cards;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -28,6 +29,32 @@ namespace AoC_D7.Combos
             }
 
             return (types, counts);
+        }
+    }
+
+    public static class CardListExtensions
+    {
+        public static int RemoveJokers(this (List<Type> types, List<int> counts) tuple)
+        {
+            var i = tuple.types.IndexOf(typeof(Joker));
+            if (i >= 0)
+            {
+                var count = tuple.counts[i];
+                tuple.types.RemoveAt(i);
+                tuple.counts.RemoveAt(i);
+                return count;
+            }
+            return 0;
+        }
+        public static void DistributeJokers(this (List<Type> types, List<int> counts) tuple)
+        {
+            var nJokers = tuple.RemoveJokers();
+            // Find the max, add the jokers
+            for (var i = 0; i < nJokers; i++)
+            {
+                var iMax = tuple.counts.IndexOf(tuple.counts.Max());
+                tuple.counts[iMax]++;
+            }
         }
     }
 }

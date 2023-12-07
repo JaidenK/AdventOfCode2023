@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using AoC_D7.Cards;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace AoC_D7.Combos
@@ -9,8 +10,8 @@ namespace AoC_D7.Combos
         public bool ContainedIn(IReadOnlyCollection<ICard> cards)
         {
             var typeCounts = new ComboUtil().CountTypes(cards);
-
-            return typeCounts.counts.Any(x => x >= 5);
+            var nJokers = typeCounts.RemoveJokers();
+            return typeCounts.counts.Any(x => x >= 5 - nJokers);
         }
     }
 }

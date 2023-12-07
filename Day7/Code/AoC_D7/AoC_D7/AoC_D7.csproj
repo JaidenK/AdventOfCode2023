@@ -50,6 +50,7 @@
     <Compile Include="Cards\Five.cs" />
     <Compile Include="Cards\Four.cs" />
     <Compile Include="Cards\Jack.cs" />
+    <Compile Include="Cards\Joker.cs" />
     <Compile Include="Cards\King.cs" />
     <Compile Include="Cards\Nine.cs" />
     <Compile Include="Cards\Queen.cs" />

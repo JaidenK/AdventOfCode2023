@@ -9,6 +9,13 @@ namespace AoC_D7
 {
     public class HandFactory
     {
+        private bool usingJokers;
+
+        public HandFactory(bool usingJokers = false)
+        {
+            this.usingJokers = usingJokers;
+        }
+
         public IHand BuildHand(string input)
         {
             var match = Regex.Match(input, @"(\S+) (\d+)");
@@ -23,7 +30,7 @@ namespace AoC_D7
 
         private List<ICard> ParseCards(string cards_string)
         {
-            var cardFactory = new CardFactory();
+            var cardFactory = new CardFactory(usingJokers: usingJokers);
             var cards = new List<ICard>();
             foreach (var letter in cards_string)
             {

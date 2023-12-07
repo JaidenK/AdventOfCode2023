@@ -10,7 +10,7 @@ namespace AoC_D7.Combos
         public bool ContainedIn(IReadOnlyCollection<ICard> cards)
         {
             var typeCounts = new ComboUtil().CountTypes(cards);
-
+            typeCounts.DistributeJokers();
             return typeCounts.counts.Where(x => x >= 2).Count() >= 2;
         }
     }

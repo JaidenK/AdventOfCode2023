@@ -56,5 +56,18 @@ namespace AoC_D7_Tests
             // Verify the output
             Assert.AreEqual(6440, winnings);
         }
+
+        [TestMethod]
+        public void ExamplePart2_E2E()
+        {
+            // Parse the input
+            ISet set = SetFactory.ParseLines(example_input, usingJokers: true);
+            // Sort by rank
+            set.SortHands();
+            // Calculate the winnings
+            var winnings = set.ComputeWinnings();
+            // Verify the output
+            Assert.AreEqual(5905, winnings);
+        }
     }
 }

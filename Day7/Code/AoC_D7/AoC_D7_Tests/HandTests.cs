@@ -81,6 +81,16 @@ namespace AoC_D7_Tests
             Assert.IsInstanceOfType(new HandFactory().BuildHand("QQ345 111").Combo, typeof(OnePair));
             Assert.IsInstanceOfType(new HandFactory().BuildHand("23456 111").Combo, typeof(HighCard));
             Assert.IsInstanceOfType(new HandFactory().BuildHand("Q2345 111").Combo, typeof(HighCard));
+            // Example input (jokers)
+            Assert.IsInstanceOfType(new HandFactory(usingJokers: true).BuildHand("32T3K 765").Combo, typeof(OnePair));
+            Assert.IsInstanceOfType(new HandFactory(usingJokers: true).BuildHand("KK677 765").Combo, typeof(TwoPair));
+            Assert.IsInstanceOfType(new HandFactory(usingJokers: true).BuildHand("KTJJT 765").Combo, typeof(FourOfAKind));
+            Assert.IsInstanceOfType(new HandFactory(usingJokers: true).BuildHand("T55J5 765").Combo, typeof(FourOfAKind));
+            Assert.IsInstanceOfType(new HandFactory(usingJokers: true).BuildHand("QQQJA 765").Combo, typeof(FourOfAKind));
+            // Joker edge cases
+            Assert.IsInstanceOfType(new HandFactory(usingJokers: true).BuildHand("JJJ34 111").Combo, typeof(FourOfAKind));
+            Assert.IsInstanceOfType(new HandFactory(usingJokers: true).BuildHand("JJ234 111").Combo, typeof(ThreeOfAKind));
+            Assert.IsInstanceOfType(new HandFactory(usingJokers: true).BuildHand("J2244 111").Combo, typeof(FullHouse));
         }
 
         [TestMethod]

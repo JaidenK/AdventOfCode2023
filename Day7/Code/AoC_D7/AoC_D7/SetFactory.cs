@@ -8,9 +8,9 @@ namespace AoC_D7
 {
     public class SetFactory
     {
-        public static ISet ParseLines(string[] example_input)
+        public static ISet ParseLines(string[] example_input, bool usingJokers = false)
         {
-            var factory = new HandFactory();
+            var factory = new HandFactory(usingJokers: usingJokers);
             var hands = new List<IHand>();
             foreach (string line in example_input)
             {
