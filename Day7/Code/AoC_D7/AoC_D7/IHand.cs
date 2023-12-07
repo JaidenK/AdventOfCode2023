@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AoC_D7.Combos;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
@@ -11,5 +12,6 @@ namespace AoC_D7
     {
         ReadOnlyCollection<ICard> Cards { get; }
         int Bid { get; }
+        ICombo Combo { get; }
     }
 }

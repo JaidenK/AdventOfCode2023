@@ -58,6 +58,8 @@
     <Compile Include="Cards\Ten.cs" />
     <Compile Include="Cards\Three.cs" />
     <Compile Include="Cards\Two.cs" />
+    <Compile Include="Combos\ComboFactory.cs" />
+    <Compile Include="Combos\ICombo.cs" />
     <Compile Include="Hand.cs" />
     <Compile Include="Cards\ICard.cs" />
     <Compile Include="HandFactory.cs" />
