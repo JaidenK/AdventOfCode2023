@@ -19,10 +19,13 @@ namespace AoC_D7
 
         public int ComputeWinnings()
         {
+            SortHands();
+
             int sum = 0;
             for (int i = 0; i < hands.Count; i++)
             {
                 sum += hands[i].Bid * (i + 1);
+                //Console.WriteLine($"Sum: {sum} (+{hands[i].Bid}*{i+1})");
             }
             return sum;
         }
