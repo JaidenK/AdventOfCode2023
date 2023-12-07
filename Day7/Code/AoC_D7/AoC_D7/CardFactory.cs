@@ -1,15 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace AoC_D7
 {
-    public interface IHand
+    public class CardFactory
     {
-        ReadOnlyCollection<ICard> Cards { get; }
-        int Bid { get; }
+        internal ICard BuildCard(char letter)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

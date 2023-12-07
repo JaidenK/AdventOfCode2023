@@ -10,14 +10,16 @@ namespace AoC_D7
     public class Hand : IHand
     {
         private int bid;
-        private ICard[] cards;
+        public int Bid => bid;
 
-        public Hand(int bid, ICard[] cards)
+        private List<ICard> cards;
+        public ReadOnlyCollection<ICard> Cards => cards.AsReadOnly();
+
+        public Hand(int bid, List<ICard> cards)
         {
             this.bid = bid;
             this.cards = cards;
         }
 
-        public ReadOnlyCollection<ICard> Cards => throw new NotImplementedException();
     }
 }

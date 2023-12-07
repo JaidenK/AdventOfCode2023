@@ -51,6 +51,7 @@
   <ItemGroup>
     <Compile Include="ExampleInputTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="HandTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

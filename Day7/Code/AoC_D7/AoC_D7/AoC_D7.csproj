@@ -43,6 +43,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CardFactory.cs" />
     <Compile Include="Cards\Ace.cs" />
     <Compile Include="Cards\CardBase.cs" />
     <Compile Include="Cards\Eight.cs" />
@@ -59,6 +60,7 @@
     <Compile Include="Cards\Two.cs" />
     <Compile Include="Hand.cs" />
     <Compile Include="Cards\ICard.cs" />
+    <Compile Include="HandFactory.cs" />
     <Compile Include="IHand.cs" />
     <Compile Include="ISet.cs" />
     <Compile Include="Program.cs" />
