@@ -61,26 +61,26 @@ namespace AoC_D7_Tests
         public void ComboTests()
         {
             // Example input
-            Assert.IsInstanceOfType(new HandFactory().BuildHand("32T3K 765"), typeof(OnePair));
-            Assert.IsInstanceOfType(new HandFactory().BuildHand("KK677 765"), typeof(TwoPair));
-            Assert.IsInstanceOfType(new HandFactory().BuildHand("KTJJT 765"), typeof(TwoPair));
-            Assert.IsInstanceOfType(new HandFactory().BuildHand("T55J5 765"), typeof(ThreeOfAKind));
-            Assert.IsInstanceOfType(new HandFactory().BuildHand("QQQJA 765"), typeof(ThreeOfAKind));
+            Assert.IsInstanceOfType(new HandFactory().BuildHand("32T3K 765").Combo, typeof(OnePair));
+            Assert.IsInstanceOfType(new HandFactory().BuildHand("KK677 765").Combo, typeof(TwoPair));
+            Assert.IsInstanceOfType(new HandFactory().BuildHand("KTJJT 765").Combo, typeof(TwoPair));
+            Assert.IsInstanceOfType(new HandFactory().BuildHand("T55J5 765").Combo, typeof(ThreeOfAKind));
+            Assert.IsInstanceOfType(new HandFactory().BuildHand("QQQJA 765").Combo, typeof(ThreeOfAKind));
             // Custom input
-            Assert.IsInstanceOfType(new HandFactory().BuildHand("AAAAA 111"), typeof(FiveOfAKind));
-            Assert.IsInstanceOfType(new HandFactory().BuildHand("55555 111"), typeof(FiveOfAKind));
-            Assert.IsInstanceOfType(new HandFactory().BuildHand("33331 111"), typeof(FourOfAKind));
-            Assert.IsInstanceOfType(new HandFactory().BuildHand("JJ3JJ 111"), typeof(FourOfAKind));
-            Assert.IsInstanceOfType(new HandFactory().BuildHand("11333 111"), typeof(FullHouse));
-            Assert.IsInstanceOfType(new HandFactory().BuildHand("94949 111"), typeof(FullHouse));
-            Assert.IsInstanceOfType(new HandFactory().BuildHand("13141 111"), typeof(ThreeOfAKind));
-            Assert.IsInstanceOfType(new HandFactory().BuildHand("TTT98 111"), typeof(ThreeOfAKind));
-            Assert.IsInstanceOfType(new HandFactory().BuildHand("23432 111"), typeof(TwoPair));
-            Assert.IsInstanceOfType(new HandFactory().BuildHand("11339 111"), typeof(TwoPair));
-            Assert.IsInstanceOfType(new HandFactory().BuildHand("A23A4 111"), typeof(OnePair));
-            Assert.IsInstanceOfType(new HandFactory().BuildHand("11345 111"), typeof(OnePair));
-            Assert.IsInstanceOfType(new HandFactory().BuildHand("23456 111"), typeof(HighCard));
-            Assert.IsInstanceOfType(new HandFactory().BuildHand("12345 111"), typeof(HighCard));
+            Assert.IsInstanceOfType(new HandFactory().BuildHand("AAAAA 111").Combo, typeof(FiveOfAKind));
+            Assert.IsInstanceOfType(new HandFactory().BuildHand("55555 111").Combo, typeof(FiveOfAKind));
+            Assert.IsInstanceOfType(new HandFactory().BuildHand("3333Q 111").Combo, typeof(FourOfAKind));
+            Assert.IsInstanceOfType(new HandFactory().BuildHand("JJ3JJ 111").Combo, typeof(FourOfAKind));
+            Assert.IsInstanceOfType(new HandFactory().BuildHand("QQ333 111").Combo, typeof(FullHouse));
+            Assert.IsInstanceOfType(new HandFactory().BuildHand("94949 111").Combo, typeof(FullHouse));
+            Assert.IsInstanceOfType(new HandFactory().BuildHand("Q3Q4Q 111").Combo, typeof(ThreeOfAKind));
+            Assert.IsInstanceOfType(new HandFactory().BuildHand("TTT98 111").Combo, typeof(ThreeOfAKind));
+            Assert.IsInstanceOfType(new HandFactory().BuildHand("23432 111").Combo, typeof(TwoPair));
+            Assert.IsInstanceOfType(new HandFactory().BuildHand("QQ339 111").Combo, typeof(TwoPair));
+            Assert.IsInstanceOfType(new HandFactory().BuildHand("A23A4 111").Combo, typeof(OnePair));
+            Assert.IsInstanceOfType(new HandFactory().BuildHand("QQ345 111").Combo, typeof(OnePair));
+            Assert.IsInstanceOfType(new HandFactory().BuildHand("23456 111").Combo, typeof(HighCard));
+            Assert.IsInstanceOfType(new HandFactory().BuildHand("Q2345 111").Combo, typeof(HighCard));
         }
     }
 }

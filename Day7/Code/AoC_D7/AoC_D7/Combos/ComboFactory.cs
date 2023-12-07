@@ -10,7 +10,24 @@ namespace AoC_D7.Combos
     {
         public ICombo CalculateCombo(IReadOnlyCollection<ICard> cards)
         {
-            throw new NotImplementedException();
+            var possibleCombos = new List<ICombo>
+            {
+                new FiveOfAKind(),
+                new FourOfAKind(),
+                new FullHouse(),
+                new ThreeOfAKind(),
+                new TwoPair(),
+                new OnePair(),
+                new HighCard(),
+            };
+
+            foreach (var combo in possibleCombos)
+            {
+                if(combo.ContainedIn(cards))
+                    return combo;
+            }
+
+            throw new Exception("No combo found in cards.");
         }
     }
 }

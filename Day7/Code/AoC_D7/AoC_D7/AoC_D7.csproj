@@ -59,7 +59,15 @@
     <Compile Include="Cards\Three.cs" />
     <Compile Include="Cards\Two.cs" />
     <Compile Include="Combos\ComboFactory.cs" />
+    <Compile Include="Combos\ComboUtil.cs" />
+    <Compile Include="Combos\FiveOfAKind.cs" />
+    <Compile Include="Combos\FourOfAKind.cs" />
+    <Compile Include="Combos\FullHouse.cs" />
+    <Compile Include="Combos\HighCard.cs" />
     <Compile Include="Combos\ICombo.cs" />
+    <Compile Include="Combos\OnePair.cs" />
+    <Compile Include="Combos\ThreeOfAKind.cs" />
+    <Compile Include="Combos\TwoPair.cs" />
     <Compile Include="Hand.cs" />
     <Compile Include="Cards\ICard.cs" />
     <Compile Include="HandFactory.cs" />
